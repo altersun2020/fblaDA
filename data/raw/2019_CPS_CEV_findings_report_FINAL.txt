@@ -1,0 +1,434 @@
+ 
+ 
+250 E Street SW 
+Washington, D.C. 20525 
+202-606-5000/ 800-942-2677 
+AmeriCorps.gov 
+Key Findings from the 2019 Current 
+Population Survey: 
+Civic Engagement and 
+Volunteering Supplement 
+ 
+AmeriCorps Research and Evaluation 
+December 2021
+ 
+ AmeriCorps.gov 
+This is an internally produced report from AmeriCorps Research and Evaluation, 
+authored by Laura Hanson Schlachter, Ph.D. Please reach out to 
+evaluation@cns.gov with any questions. 
+Suggested citation:  
+AmeriCorps, Office of Research and Evaluation. (2021). Key Findings from 
+the 2019 Current Population Survey: Civic Engagement and Volunteering 
+Supplement. (by Laura Hanson Schlachter, Ph.D.). Washington, DC: Author. 
+AmeriCorps.gov 1 
+ 
+ 
+ 
+Executive Summary 
+Volunteering and national service are cornerstones of democratic participation and 
+civility in American society. Unpacking trends in civic behavior is a first step toward 
+developing a comprehensive plan to unify the country in this moment of national 
+reckoning.  
+As the most robust longitudinal survey on the topic, the Current Population Survey (CPS) 
+Civic Engagement and Volunteering (CEV) Supplement provides valuable insight into 
+America’s civic health over time. This report summarizes top-level findings from the 2019 
+data and identifies opportunities for future research. 
+The national organization-based volunteering rate has remained stable over the past 
+two decades. In 2019, an estimated 30 percent of Americans or 77.9 million people 
+reported they volunteered for an organization or association. 
+Consistent with previous research, 2019 volunteering rates vary by demographic, 
+socioeconomic, and family characteristics. Unpacking these patterns requires an 
+intersectional approach that understands social inequalities like race, class, and gender 
+as deeply intertwined. 
+Volunteering represents only one dimension of a much larger array of civic activity in 
+the U.S. Although volunteering has received the lion’s share of attention in policy 
+debates about national service, the 2019 CPS CEV echoes a growing body of 
+AmeriCorps-funded research about how different groups engage in and are impacted 
+by civic activity across communities, demographic characteristics, and geography. 
+Several questions raised by the 2019 CPS CEV warrant further investigation. For example, 
+future research should examine variation in volunteering intensity, pathways and 
+barriers to various types of civic engagement for different groups, and implications for 
+national service programs. 
+The most recent wave of CPS CEV data collected in September 2021 offers unique 
+opportunities to examine the impacts of COVID-19 and policy interventions on 
+America’s civic health. New questions will also shed light on the relationship between 
+work and civic life.   
+Data from the CPS CEV is a necessary but insufficient piece of a larger puzzle: how can 
+we best address the urgent challenges facing our nation in a way that reinvigorates our 
+civic health? Situating findings from this report in broader scholarship and policy 
+conversations will help the nation begin charting a new path forward. 
+  
+AmeriCorps.gov 2 
+ 
+ 
+ 
+Why Measure Civic Engagement and Volunteering? 
+An extensive body of research documents links between well-being and civic life.  
+Since Alexis de Tocqueville (1839) first proposed that civic participation is foundational 
+to democracy in America, scholars have found that the vitality of the civic sphere is 
+closely associated with indicators of social, economic, physical, and mental health. For 
+example, studies have found links between educational outcomes and social capital 
+(Turley et al. 2017), social relationships and mortality risk (Holt-Lunstad et al. 2010), and 
+neighborhood-level collective efficacy and crime rates (Sampson et al. 1997). Civic ties 
+are also crucial for community resilience in the face of natural disasters and other tests 
+of collective strength (see e.g. Erikson 1976, Klinenberg 2015). Taken together, the 
+evidence suggests that addressing intersecting crises like climate change, racial 
+inequality, and political polarization requires understanding and investing in America’s 
+civic infrastructure.i National service programs that systematically build volunteer 
+capacity in communities are one crucial piece of the puzzle. Federal statistics are 
+another.  
+Since 2002, the nation’s most robust longitudinal data on Americans’ civic engagement 
+and volunteering behavior has come from AmeriCorps-sponsored supplements 
+attached to the Current Population Survey (CPS).ii The CPS has a unique research 
+design that not only provides vital monthly labor force statistics but also permits reliable 
+estimates at the state level and panel analysis at one-year intervals.iii  
+In 2010, the AmeriCorps Office of Research and Evaluation sponsored the convening of 
+a group of experts to assess existing data collection efforts related to social capital, 
+civic engagement, and social cohesion and make recommendations about how best 
+to measure these constructs in the CPS. The resulting report (National Research Council 
+2014) informed the launch of a new supplement on Civic Engagement and 
+Volunteering (CEV)iv to be administered biennially starting in 2017. The findings 
+discussed below are based on the second wave of CPS CEV responses collected from 
+139,217 households in all 50 states and the District of Columbia in September 2019. 
+The National Research Council (2014) also recommended complementing the CPS with 
+more research at the subnational or local levels by using diverse research approaches 
+to tap into the complexity of volunteering and civic engagement. In response, the 
+AmeriCorps Office of Research and Evaluation developed a research grant program 
+for institutions of higher education and awarded 34 cooperative agreement grants 
+from 2015 to 2018.v These studies are demonstrating the wide variety of ways that 
+different groups civically engage across communities, demographic characteristics, 
+and geography (see e.g. Crittenden et al. 2020, Nesbit et al. 2018), including the 
+prevalence of informal forms of volunteering among youth of color (Wray-Lake and 
+Abrams 2020). They also show how volunteering and national service impacts members, 
+organizations, and communities – especially in terms of employment outcomes 
+(Benenson et al. 2016, CIRCLE 2021, Konrath et al. 2020, Whitsett et al. 2018)vi and 
+subjective well-being (Velasco et al. 2018). Taken together, these results show that 
+triangulating robust national survey data with administrative records, in-depth 
+AmeriCorps.gov 3 
+ 
+ 
+ 
+interviews, ethnographies, and other types of qualitative and community-based data 
+provides an even richer picture of civic engagement and volunteering across the 
+United States.   
+Organizational Volunteering in America 
+The 2019 CPS CEV finds that an estimated 30 percent of Americans or 77,949,981 
+people reported they volunteered for an organization or association in the previous 
+year.vii This volunteering rate is comparable to 2017 and has remained largely stable 
+over the past two decades. In total, these volunteers served an estimated 5.8 billion 
+hoursviii with an economic value of $147 billion.ix 
+Although the average volunteer contributed 74 hours of their time in the previous year, 
+the mean obscures substantial underlying variation. Total time volunteered from 
+September 2018 to 2019 ranged from 1 to 500 hours with a quarter of volunteers serving 
+10 hours or less, another quarter serving 90 hours or more, and five percent serving 360 
+hours or more.x 
+Consistent with a large body of research, the 2019 CPS CEV suggests that volunteers for 
+U.S. organizations and associations are disproportionately female, white, non-Hispanic, 
+and middle-aged (Musick and Wilson 2008, National Research Council 2014). A third of 
+women volunteered compared to a quarter of men, while 32 percent of whites 
+volunteered compared to 25 percent of those of another race and 23 percent of 
+Blacks. Only 19 percent of Hispanics (who may be of any race) volunteered compared 
+to almost a third of non-Hispanics. The median volunteer is 47 years old and the 
+volunteering rate is highest among members of Generation X born between 1965 and 
+1980 (35 percent).xi 
+Also consistent with previous studies, socioeconomic and family characteristics are 
+associated with substantial variation in rates of organization-based volunteering (Musick 
+and Wilson 2008, Wiertz and Lim 2019). For example, rates increase dramatically with 
+educational attainment (12 percent among those with less than a high school diploma 
+compared to 44 percent among those with a college degree or higher) and annual 
+household income (approximately 20 percent among those in households making less 
+than $40,000 compared to 45 percent making $150,000 or more). Rates of 
+organizational volunteering are also relatively higher among part-time workers (37 
+percent) and parents of school-aged children (43 percent compared to 29 percent of 
+parents of young children), who tend to have more discretionary time, network ties, 
+and other personal circumstances that support civic engagement (Brady et al. 1995, 
+Goldstone and McAdam 2001, Roth 2016).xii 
+These findings underscore calls for a more intersectional approach to investigating civic 
+life in America that understands social inequalities like race, ethnicity, class, and gender 
+as deeply intertwined rather than additive (Collins 2019). For instance, differences in 
+organizational volunteering rates within racial subgroups vary widely by educational 
+attainment in the 2019 CPS CEV. As Figure 1 indicates, the percentage-point difference 
+AmeriCorps.gov 4 
+ 
+ 
+ 
+in volunteering rates between those with and without a college degree is highest 
+among whites (23 percent), then declines to 19 percent among Blacks and 15 percent 
+among those of another race.   
+ 
+Figure 2 suggests a similar pattern except the percentage-point difference in 
+organizational volunteering rates between those with and without a college degree is 
+about the same for people who are and are not of Hispanic origin.   
+ 
+These types of patterns raise broader questions about the complex drivers of variation in 
+organization-based volunteering rates and the distinction between volunteering and 
+professional development. 
+ 
+24%
+19%
+18%
+47%
+38%
+32%
+Whites without a college degree
+Blacks without a college degree
+Other race without a college degree
+Whites with a college degree
+Blacks with a college degree
+Other race with a college degree
+Figure 1. Volunteering Rate by Race and Education
+Among those 25 years and older
+25%
+15%
+45%
+34%
+Non-Hispanics without a college degree
+Hispanics without a college degree
+Non-Hispanics with a college degree
+Hispanics with a college degree
+Figure 2. Volunteering Rate by Hispanic Origin and Education
+Among those 25 years and older
+AmeriCorps.gov 5 
+ 
+ 
+ 
+The Multidimensional Nature of Civic Engagement 
+Historically, organizational volunteering has received the lion’s share of attention in 
+policy debates about national service. Yet the 2019 CPS CEV echoes a growing body 
+of AmeriCorps-funded research that it represents only one dimension of a much larger 
+array of civic activity in the U.S.   
+Some types of civic engagement are more institutionally oriented. For example, 53 
+percent of eligible voters participated in local elections and half of Americans donated 
+to a non-political group between September 2018 and 2019. As Figure 3 indicates, 
+others are more informal. In the 2019 CPS CEV, 70 percent of Americans had 
+conversations with their neighbors and 29 percent discussed political, societal, or social 
+issues with neighbors at least once in the past year. About half exchanged favors with 
+their neighbors and 21 percent participated in a local effort to do something positive 
+for their community.   
+ 
+Civic engagement scholars have historically conceptualized informal helping and 
+formal volunteering as distinct (Crittenden et al. 2020, Tang et al. 2010), yet the 2019 
+CPS CEV data suggests a positive – albeit weak – relationship between these constructs 
+that persists across racial, ethnic, and educational attainment subgroups.xiii Our 
+exploratory analysis of how various measures in the CPS CEV cluster together finds that 
+measures as diverse as informal helping, organization-based volunteering, public 
+meeting attendance, and consumer activism share a common underlying construct.xiv 
+In short, deeper analysis of the multidimensional nature of civic engagement is clearly 
+needed.  
+70%
+29%
+52%
+21%
+Having a conversation or
+spending time with
+neighbors
+Discussing political,
+societal, or local issues
+with neighbors
+Exchanging favors with
+neighbors
+Getting together with
+neighbors to do
+something positive for
+the community
+Figure 3. Rates of Informal Civic Engagement Behaviors
+AmeriCorps.gov 6 
+ 
+ 
+ 
+Opportunities for Future Research 
+These top-level findings from the 2019 CPS CEV shed light on several questions of interest 
+to researchers, policymakers, and the public. They also point toward several issues that 
+warrant further investigation. For example: 
+• Who are the “supervolunteers” who contribute such significant amounts of time 
+to organizations and associations? Prior research has largely treated volunteering 
+as a binary variable, but considerable variation in total hours volunteered 
+suggests a more complex approach is warranted.   
+• How do pathways and barriers to various types of civic engagement vary by 
+education, race, income, age, and geography? 
+• What are the implications of these questions for recruitment into national service 
+programs and goal-setting? 
+The most recent wave of data collected in September 2021 also offers unique 
+opportunities to examine the impacts of COVID-19 and policy interventions on 
+America’s civic health. For example: How have social distancing and quarantine 
+guidelines affected organization-based volunteering? Are significant investments in 
+AmeriCorps through the American Rescue Plan evident in localized civic engagement 
+behavior? To what extent does volunteering provide pathways to employment (Spera 
+et al. 2013) for communities disproportionately impacted by the pandemic-induced 
+recession? Two new questions designed to facilitate the transition between the core 
+CPS labor force module and the CEV will also shed light on methodological issues 
+related to response and drop-off rates and the relationship between work and civic 
+life.xv   
+The AmeriCorps Office of Research and Evaluation anticipates the possibility of revising 
+the survey instrument again in 2023 based on lessons learned from the 2021 
+administration. For example, we are thinking about key questions like the following: 
+• Are we learning anything from research at the subnational and local levels that 
+warrant inclusion in this national survey? 
+• Do Americans conceptualize national service as a form of volunteering – or 
+professional development?  
+• How do the spheres of work, civic engagement, and family intersect and inform 
+each other over the life course? 
+As the National Research Council (2014:15) writes, civic engagement and social 
+cohesion “can be powerful drivers affecting the quality of life among a community’s, a 
+city’s, or a nation’s inhabitants and their ability to achieve both individual and societal 
+goals.” With the unprecedented challenges facing America at this moment, studying 
+and strengthening our civic infrastructure is more urgent than ever. 
+AmeriCorps.gov 7 
+ 
+ 
+ 
+References 
+Benenson, Jodi, Felicia M. Sullivan, and Noorya Hayat. 2016. “Does AmeriCorps Impact 
+Nonprofit Sector Employment Prospects for Young People? A Field Experiment.” 
+Paper presented at the November 2016 Annual Meeting of the Association for 
+Research on Nonprofit Organizations and Voluntary Action in Washington, DC. 
+Brady, Henry, Sidney Verba and Kay Lehman Schlozman. 1995. “Beyond SES: A 
+Resource Model of Political Participation.” The American Political Science Review 
+89(2):271-294. 
+CIRCLE, Center for Information & Research on Civic Learning and Engagement. 2021. 
+“Study: Does National Service Experience Improve a Young Person’s Job 
+Prospects?” Research brief 16 March. Tisch College, Tufts University. Available at 
+https://circle.tufts.edu/latest-research/study-does-national-service-experience-
+improve-young-persons-job-prospects. 
+Collins, Patricia Hill. 2019. Intersectionality as Critical Social Theory. Durham: Duke 
+University Press. 
+Crittenden, Jennifer, Sandy Butler, Nicholas Silver, Abbie Hartford, and Rachel Coleman. 
+2020. “Juggling Multiple Roles: An Examination of Role Conflict and Its 
+Relationship to Older Adult Volunteer Satisfaction and Retention.” Maine Center 
+on Aging Research and Evaluation. Brief Report 43. 
+Erikson, Kai. 1976. Everything in its Path: Destruction of Community in the Buffalo Creek 
+Flood. New York: Simon and Schuster. 
+Goldstone, Jack and Doug McAdam. 2001. “Contention and Demographic and Life-
+Course Context.” Pp. 195-221 in Silence and Voice in the Study of Contentious 
+Politics edited by Aminzade et al. Cambridge: Cambridge University Press. 
+Holt-Lunstad, Julianne, Timothy Smith, and J. Bradley Layton. 2010. “Social Relationships 
+and Mortality Risk: A Meta-Analytic Review.” PLOS Medicine 7(7):e1000316. 
+Klinenberg, Eric. 2015. Heat Wave: A Social Autopsy of Disaster in Chicago, 2nd edition. 
+Chicago: The University of Chicago Press. 
+Konrath, Sara, Xiao Han, Xiaonan Kou, and Una Osili. 2020. “Predictors of Youth 
+Volunteering and Charitable Giving: An Ecological Systems Approach.” Draft 
+manuscript (under review). 
+Lang, R.E. and Hornburg, S.P. 1998.  “What is social capital and why is it important to 
+public policy? Housing Policy Debate 9(1):1-16. 
+Musick, Marc and John Wilson. 2008. Volunteers: A Social Profile. Bloomington and 
+Indianapolis: Indiana University Press. 
+AmeriCorps.gov 8 
+ 
+ 
+ 
+National Research Council. 2014. Civic Engagement and Social Cohesion: Measuring 
+Dimensions of Social Capital to Inform Policy. Washington, DC: The National 
+Academies Press. 
+Nesbit, Rebecca, Laurie Paarlberg, Ryan Moss, and Su Young Choi. “The Moderating 
+Effect of Rurality on the Incidence and Intensity of Volunteering.” Paper 
+presented at the 2018 ARNOVA Research Conference in Austin. 
+Roth, Silke. 2016. “Professionalization and Precariousness: Perspectives on the 
+Sustainability of Activism in Everyday Life.” Interface 8(2):29-58. 
+Sampson, Robert J., Stephen W. Raudenbush, and Felton Earls. 1997. “Neighborhoods 
+and Violent Crime: A Multilevel Study of Collective Efficacy.” Science 
+277(5328):918-924. 
+Spera, Christopher, Robin Ghertner, Anthony Nerino, and Adrienne DiTommaso. 2013. 
+“Volunteering as a Pathway to Employment: Does Volunteering Increase Odds of 
+Finding a Job for the Out of Work?” Report by the Office of Research and 
+Evaluation, Corporation for National and Community Service: Washington, DC. 
+Tang, Fengyan, Nancy Morrow-Howell, and Eunhee Choi. 2010. “Why Do Older Adult 
+Volunteers Stop Volunteering?” Aging and Society 30(5):859-878. 
+Tocqueville, Alexis de. 1839. Democracy in America. New York: George Adlard. 
+Turley, Ruth N. López, Adam Gamoran, Alyn Turner McCarty, and Rachel Fish. 2017. 
+“Reducing Children’s Behavior Problems through Social Capital: A Causal 
+Assessment.” Social Science Research 61:206-217. 
+Velasco, Kristopher, Pamela Paxton, Robert Ressler, Inbar Weiss, and Lilla Pivnick. 2018.  
+“Do National Service Programs Improve Subjective Well-Being in Communities?” 
+The American Review of Public Administration 49(3):275-291. 
+Whitsett, Andrea, David Schlinkert, and Sofia Mastikhina. 2018. “The AmeriCorps 
+Experience: Transformation through Service.” Arizona State University Morrison 
+Institute for Public Policy. Report to the Corporation for National and Community 
+Service. Available at https://morrisoninstitute.asu.edu/content/americorps-
+experience-transformation-through-service. 
+Wiertz, Dingeman and Chaeyoon Lim. 2019. “The Civic Footprints of Labor Market 
+Participation: Longitudinal Evidence from the United States, 2002-2015.” Social 
+Forces 97(4):1757-1784. 
+Wray-Lake, Laura and Laura Abrams. 2020. “Pathways to Civic Engagement Among 
+Urban Youth of Color.” Monographs of the Society for Research in Child 
+Development 85(2):7-154. 
+AmeriCorps.gov 9 
+ 
+ 
+ 
+ 
+i “Civic infrastructure” is defined as the “invisible structures and processes through which the 
+social contract is written and rewritten in communities,” “the formal and informal processes and 
+networks through which communities make decisions and solve problems”, or “the network that 
+exists among local groups such as community development corporations (CDCs), foundations, 
+other nonprofits, local governments, public housing authorities, businesses, and voluntary 
+associations.” (Lang and Hornburg 1998). 
+ii The CPS Volunteer Supplement was administered annually in September from 2002 -15. The CPS 
+Civic Engagement Supplement was administered in November 2008, 2010, 2011, and 2013. The 
+CPS Civic Engagement and Volunteering Supplement (CPS CEV), which merged and 
+consolidated these two questionnaires, was administered in September 2017, 2019, and 2021. 
+The CPS CEV has also been known as the CPS Volunteering and Civic Life Supplement.  
+iii The CPS also provides fairly reliable estimates for the twelve largest Metropolitan Statistical 
+Areas (MSAs). For details, see https://www.census.gov/programs-surveys/cps/about.html.  
+iv The Civic Engagement and Volunteering (CEV) supplement has also been referred to as the 
+supplement on Volunteering and Civic Life in America (VCLA). 
+v See https://americorps.gov/partner/how-it-works/research-evaluation. 
+vi These research grantees build on numerous social science and policy studies that use CPS 
+data to investigate the relationship between volunteering and employment. See, for example, a 
+CNCS report titled “Volunteering as a Pathway to Employment” (Spera et al. 2013) and Wiertz 
+and Lim (2019). 
+vii All figures reported here are weighted to account for the random selection of eligible 
+respondents and missing data due to nonresponse. 
+viii Total hours served nationally calculated by multiplying weighted average of hours served per 
+volunteer (74.32) by total estimated number of volunteers nationally (77,949,982) = 5,793,524,025 
+hours.   
+ix Based on Independent Sector's estimate that the average value of a volunteer hour was 
+$25.43 in 2019 (see https://independentsector.org/news-post/new-value-volunteer-time-2019/). 
+x Those who served 500 hours in the previous year represent 3.5 percent of all volunteers. This 
+group is more likely to be older and outside the labor force relative to volunteers overall.  
+xi By comparison, 30 percent of Baby Boomers, 28 percent of Generation Z and Millennials, and 
+25 percent of Silent Generation or older volunteered.  Generational cohorts are defined based 
+on thresholds from the Pew Research Center (see https://www.pewsocialtrends.org/essay/on-
+the-cusp-of-adulthood-and-facing-an-uncertain-future-what-we-know-about-gen-z-so-far/). In 
+2019, members of Generation Z (born after 1996) were 22 years old or y ounger, Millennials (born 
+1981 to 1996) were aged 23 to 38, members of Generation X (born 1965 to 1980) were aged 39 
+to 54, and Baby Boomers (born 1946 to 1964) were aged 55 to 73. Since topcoding made it 
+impossible to differentiate between members of the Silent (born 1928 to 1945) and Greatest 
+Generations (born 1901 to 1927), all respondents aged 74 or older in 2019 were coded as “Silent 
+Generation or older.” 
+xii Overall, parents of children under 18 years also volunteer at a higher rate (39 percent) than 
+those who are not a parent of children under 18 (27 percent). Those who are employed full- time 
+volunteer at a relatively higher rate (31 percent) than those who are not in the labor force (27 
+percent) or unemployed (24 percent). 
+xiii The Pearson correlation coefficient, a common measure of the strength of a statistical 
+relationship between variables, is 0.2541 for organizational volunteering and exchanging favors 
+with neighbors at least once in the past year and significant at the 5 percent level. Typically, a 
+Pearson correlation coefficient between 0 and 0.3 implies a positive but weak relationship. The 
+correlation remains positive, weak, and statistically significant when we restrict the analysis to 
+racial and subgroups and respondents with versus without a college degree.  
+AmeriCorps.gov 10 
+ 
+ 
+ 
+ 
+xiv Exploratory factor analysis is a statistical technique that examines the structure of observed 
+data and identifies clusters of variables that are interrelated through shared underlying 
+constructs or “factors.” We used a specific type of exploratory factor analysis called principal 
+components analysis (PCA) that is well suited for simplifying complex datasets. Our PCA of four 
+CEV variables – exchanging favors with neighbors, volunteering, public meeting attendance, 
+and consumer activism – identified one factor with an eigenvalue of 1.64. According to a 
+mathematical rule of thumb called the Kaiser criterion, which uses the number of factors and 
+absolute value of the eigenvalue to assess the strength of relationships in a covariance matrix, 
+these findings suggest that these four behaviors share an unmeasured underlying construct.  
+xv The new questions were developed by ORE grantees who adapted constructs from 
+AmeriCorps-supported research and the General Social Survey: 
+• Now I’m going to read you a list of statements that might or might not describe your 
+main job.  Please tell me whether you [strongly agree, agree, disagree, or strongly 
+disagree] with each of these statements: 
+o I am proud to be working for my employer 
+o My workplace contributes to the community 
+o My main satisfaction in life comes from work 
+o I contribute to the community through my work 
+• In the past 12 months, has your workplace or employer asked or encouraged employees 
+to volunteer or contribute to a specific cause?  Examples include participating in an 
+employer-sponsored volunteering day, providing pro bono services, or donating to a 
+charity. [yes, no] 

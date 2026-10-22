@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Civic Engagement Analysis</title>
+<meta name="description" content="FBLA Data Analysis 2026–27: a visual story of how Americans volunteer, help and give (CEV 2017–2023) and what Flinders Street Technology should prioritize.">
+<link rel="stylesheet" href="styles.css">
+<script src="vendor/chart.umd.min.js"></script>
+<script src="data/cev-data.js"></script>
+</head>
+<body>
+<div class="topbar"><button id="menuBtn" aria-label="Open navigation">☰</button><b>Civic Engagement Analysis</b><button id="presentBtn2" class="ghost">Present</button></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">Flinders Street Technology<span>Social Impact Plan · Data Analysis</span></div>
+    <nav class="nav" id="nav">
+      <a href="#title"><span class="n">0</span>Title</a>
+      <a href="#picture"><span class="n">1</span>The big picture</a>
+      <a href="#changed"><span class="n">2</span>What changed</a>
+      <a href="#twenty"><span class="n">3</span>Twenty years</a>
+      <a href="#who"><span class="n">4</span>Who engages</a>
+      <a href="#where"><span class="n">5</span>Where</a>
+      <a href="#work"><span class="n">6</span>The workplace</a>
+      <a href="#value"><span class="n">7</span>Hours &amp; dollars</a>
+      <a href="#plan"><span class="n">8</span>The plan</a>
+      <a href="#sources"><span class="n">9</span>Sources &amp; method</a>
+    </nav>
+    <div class="tools">
+      <button id="presentBtn" class="primary" title="Fullscreen, one section per screen (P)">Present</button>
+      <button id="themeBtn" title="Toggle light/dark">Theme</button>
+      <a class="btn" href="index.html">Simple view →</a><a class="btn" href="explore.html">Data explorer →</a><a class="btn" href="prep.html">Event prep →</a>
+    </div>
+    <p class="small muted" style="margin:.6rem 0 0"><span class="kbd">←</span> <span class="kbd">→</span> sections · <span class="kbd">P</span> present</p>
+  </aside>
+
+  <main class="main">
+
+  <!-- 0 TITLE -->
+  <section class="slide" id="title">
+    <div class="kicker">FBLA Data Analysis · 2026–2027 · Flinders Street Technology</div>
+    <h1>Americans are coming back to civic life. Where should FST invest?</h1>
+    <p class="lead">Four surveys, 17 behaviors, 50 states. One story in eight charts.</p>
+    <div class="tiles" id="heroTiles"></div>
+    <p class="small muted">AmeriCorps &amp; U.S. Census Bureau, Civic Engagement and Volunteering (CEV) Supplement 2017–2023 · Independent Sector · CECP · BLS. Every chart was built by the competitors from the source tables.</p>
+  </section>
+
+  <!-- 1 BIG PICTURE -->
+  <section class="slide" id="picture">
+    <div class="section-head">
+      <div class="kicker">1 · The big picture</div>
+      <h2>Almost everyone talks. Half help a neighbor. Only 1 in 4 volunteers through an organization.</h2>
+    </div>
+    <div class="card">
+      <div class="chart-wrap tall"><canvas id="chPicture"></canvas></div>
+      <div class="caption">Share of Americans 16+ who did each at least once, Sept 2022–Sept 2023. Color = CEV engagement area. Source: AmeriCorps CEV national rates. Visual 1.</div>
+    </div>
+    <div class="takeaways">
+      <div class="tk"><b>97%</b> talk with friends and family; <b>70%</b> with neighbors</div>
+      <div class="tk"><b>54%</b> help neighbors informally, <b>49%</b> give to charity</div>
+      <div class="tk"><b>28%</b> formally volunteer, the behavior FST can move most</div>
+    </div>
+  </section>
+
+  <!-- 2 WHAT CHANGED -->
+  <section class="slide" id="changed">
+    <div class="section-head">
+      <div class="kicker">2 · What changed</div>
+      <h2>The pandemic knocked down in-person engagement. Most of it is back; interest in issues is not.</h2>
+    </div>
+    <div class="card">
+      <div class="controls"><div class="seg" id="chgMode"><button data-m="dip" class="on">Dip &amp; rebound</button><button data-m="net">Net change 2017 → 2023</button></div></div>
+      <div class="chart-wrap tall"><canvas id="chChanged"></canvas></div>
+      <div class="caption">Percentage-point change in each national measure. Employer encouragement starts in 2021. Source: AmeriCorps CEV. Visual 2.</div>
+    </div>
+    <div class="takeaways">
+      <div class="tk up"><b>Rebounded:</b> volunteering +5.1, taking action with neighbors +3.5, informal helping +3.4</div>
+      <div class="tk down"><b>Still falling:</b> following the news −5.7 since 2017, posting views −4.4, contacting officials −2.7</div>
+      <div class="tk"><b>Steady climbers:</b> boycotts/buycotts +3.6, employer encouragement +4.5 in two years</div>
+    </div>
+  </section>
+
+  <!-- 3 TWENTY YEARS -->
+  <section class="slide" id="twenty">
+    <div class="section-head">
+      <div class="kicker">3 · Twenty years of volunteering</div>
+      <h2>Flat for two decades, a record low in 2021, then the fastest rebound ever measured.</h2>
+    </div>
+    <div class="card">
+      <div class="chart-wrap"><canvas id="chLong"></canvas></div>
+      <div class="caption">Share of Americans who volunteered through an organization. Grey: BLS/Census CPS Volunteer Supplement 2003–2015. Teal: CEV 2017–2023. Dashed gap = 2017 questionnaire redesign; the two series are not directly comparable. Visual 3.</div>
+    </div>
+    <div class="takeaways">
+      <div class="tk down"><b>2021:</b> 23.2%, lowest ever recorded</div>
+      <div class="tk up"><b>2023:</b> 28.3%, +5.1 pts, a 22% jump in two years</div>
+      <div class="tk"><b>Gap left:</b> 1.7 pts below 2019</div>
+    </div>
+  </section>
+
+  <!-- 4 WHO -->
+  <section class="slide" id="who">
+    <div class="section-head">
+      <div class="kicker">4 · Who engages</div>
+      <h2>Volunteering rises with income and education. The biggest untapped groups are young, lower-income and Hispanic Americans.</h2>
+    </div>
+    <div class="card">
+      <div class="controls">
+        <label>Group by<select id="demoCat"></select></label>
+        <label>Measure<select id="demoMeasure"></select></label>
+        <div class="seg" id="demoYears"></div>
+      </div>
+      <div class="chart-wrap tall"><canvas id="chDemo"></canvas></div>
+      <div class="caption">Source: AmeriCorps CEV rates by demographic subgroup. Try: Generation, Ethnicity, Education. Visual 4 (interactive).</div>
+    </div>
+    <div class="takeaways">
+      <div class="tk"><b>2.5×</b> gap: 16% volunteer in households under $25k vs 41% at $150k+</div>
+      <div class="tk down"><b>Drop-off at 18:</b> 34% of 16–17 year-olds volunteer, 23% of 18–24</div>
+      <div class="tk up"><b>Millennials</b> are above their pre-pandemic rate; Gen Z giving is up 18% → 24%</div>
+    </div>
+  </section>
+
+  <!-- 5 WHERE -->
+  <section class="slide" id="where">
+    <div class="section-head">
+      <div class="kicker">5 · Where</div>
+      <h2>14 states are back to 2019 levels. 11 are still 5+ points behind, mostly in the South and Mountain West.</h2>
+    </div>
+    <div class="grid cols-3">
+      <div class="card span-2">
+        <div class="controls">
+          <label>Measure<select id="mapMeasure"></select></label>
+          <label>Year<select id="mapYear"></select></label>
+          <div class="seg" id="mapMode"><button data-mode="level">Level</button><button data-mode="change" class="on">Change vs 2019</button></div>
+        </div>
+        <div class="tilemap" id="tilemap" role="img" aria-label="Tile map of U.S. states"></div>
+        <div class="legend" id="mapLegend"></div>
+        <div class="caption">Click any state. Source: AmeriCorps CEV state rates. Visual 5 (interactive).</div>
+      </div>
+      <div class="card">
+        <div id="stateDetail" class="state-detail"></div>
+        <h3 style="margin-top:1rem">Top 5 / bottom 5</h3>
+        <ol class="rank-list" id="rankList"></ol>
+      </div>
+    </div>
+    <div class="takeaways">
+      <div class="tk up"><b>Highest 2023:</b> Utah 47%, Vermont 41%, Nebraska 40%, Minnesota 40%</div>
+      <div class="tk down"><b>Lowest:</b> Rhode Island 18%, Nevada 19%, Alabama 20%, Florida 20%; metro Miami 17%</div>
+      <div class="tk"><b>States that volunteer also give, join and help:</b> r = 0.92 with membership, 0.80 with giving</div>
+    </div>
+  </section>
+
+  <!-- 6 WORK -->
+  <section class="slide" id="work">
+    <div class="section-head">
+      <div class="kicker">6 · The workplace lever</div>
+      <h2>The employer is the fastest-growing on-ramp to civic life, and it is the one FST controls.</h2>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Workers whose employer encouraged them to volunteer or give</h3>
+        <div class="chart-wrap"><canvas id="chWork"></canvas></div>
+        <div class="caption">By generation and income, 2021 vs 2023. Source: AmeriCorps CEV. Visual 6.</div>
+      </div>
+      <div class="card">
+        <h3>Where employers ask, more people volunteer</h3>
+        <div class="chart-wrap"><canvas id="chScatter"></canvas></div>
+        <div class="caption">Each dot is a state, 2023. Correlation r = 0.63 (not proof of cause). Visual 7.</div>
+      </div>
+    </div>
+    <div class="takeaways">
+      <div class="tk up"><b>40%</b> of workers (61 million) were encouraged in 2023, up from 35.5%</div>
+      <div class="tk"><b>Encouraged workers:</b> 42% volunteer vs 23% nationally (2021)</div>
+      <div class="tk down"><b>Only 24%</b> of low-income workers are asked, vs 51% of high-income</div>
+    </div>
+    <div class="card" style="margin-top:1.1rem">
+      <h3>How big companies actually do it (CECP benchmarks, 2024)</h3>
+      <div class="chart-wrap short"><canvas id="chCecp"></canvas></div>
+      <div class="caption">Source: CECP, Giving in Numbers 2025 Edition (189 large companies, 2024 data). Visual 8.</div>
+    </div>
+  </section>
+
+  <!-- 7 VALUE -->
+  <section class="slide" id="value">
+    <div class="section-head">
+      <div class="kicker">7 · Hours and dollars</div>
+      <h2>Volunteers gave fewer hours than in 2019, but each hour is worth more, and online volunteers give the most.</h2>
+    </div>
+    <div class="tiles" id="valueTiles"></div>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Value of one volunteer hour, 2001–2025</h3>
+        <div class="chart-wrap short"><canvas id="chHourValue"></canvas></div>
+        <div class="caption">Source: Independent Sector, Value of Volunteer Time (based on BLS average hourly earnings). Visual 9.</div>
+      </div>
+      <div class="card">
+        <h3>Hours per volunteer in 2023: in person vs online</h3>
+        <div class="chart-wrap short"><canvas id="chVirtual"></canvas></div>
+        <div class="caption">Source: AmeriCorps / University of Maine, Virtual Volunteering brief (2024). Visual 10.</div>
+      </div>
+    </div>
+    <div class="takeaways">
+      <div class="tk"><b>5.8B → 4.99B</b> hours (2019 → 2023) but <b>$147B → $167B</b> in value</div>
+      <div class="tk down"><b>Median 24 hours</b> per volunteer, down from 52 in 2002</div>
+      <div class="tk up"><b>18%</b> volunteer at least partly online and serve <b>95 vs 64</b> hours</div>
+    </div>
+  </section>
+
+  <!-- 8 PLAN -->
+  <section class="slide" id="plan">
+    <div class="section-head">
+      <div class="kicker">8 · The plan</div>
+      <h2>Four priorities, each tied to a number FST can track.</h2>
+    </div>
+    <div class="grid cols-2">
+      <div class="card rec">
+        <div class="num">1</div>
+        <div>
+          <h3>Ask every employee <span class="pill high">High feasibility</span></h3>
+          <p class="small">Paid volunteer time off, 1:1 gift matching, a company-wide service week.</p>
+          <div class="chips"><span class="chip">Why: encouraged workers volunteer at 42% vs 23%</span><span class="chip">Benchmark: 93% of large firms match gifts; avg participation 25%</span><span class="chip">KPI: participation ≥ 31% (small-company benchmark)</span></div>
+        </div>
+      </div>
+      <div class="card rec two">
+        <div class="num">2</div>
+        <div>
+          <h3>Build the hybrid-volunteering layer <span class="pill high">High feasibility</span></h3>
+          <p class="small">Free scheduling, remote-mentoring and IT tools for nonprofits; engineers on virtual pro bono projects.</p>
+          <div class="chips"><span class="chip">Why: online volunteers serve 95 hrs vs 64</span><span class="chip">Benchmark: 82% of large firms offer virtual volunteering</span><span class="chip">KPI: hybrid hours delivered; nonprofits onboarded</span></div>
+        </div>
+      </div>
+      <div class="card rec three">
+        <div class="num">3</div>
+        <div>
+          <h3>Reach the 18–24s and lower-income workers <span class="pill med">Medium feasibility</span></h3>
+          <p class="small">Paid tech-skills service fellowships with community colleges and Hispanic-serving institutions.</p>
+          <div class="chips"><span class="chip">Why: volunteering drops 34% → 23% after age 17</span><span class="chip">Why: &lt;$25k households 16%; Hispanic 17%</span><span class="chip">KPI: fellows placed; volunteering 12 months later</span></div>
+        </div>
+      </div>
+      <div class="card rec four">
+        <div class="num">4</div>
+        <div>
+          <h3>Fund neighbors in the lagging states <span class="pill med">Medium feasibility</span></h3>
+          <p class="small">Community grants for mutual-aid networks and tool libraries in the 11 states still 5+ points below 2019 and the Sun Belt metros.</p>
+          <div class="chips"><span class="chip">Why: informal helping at a record 54%</span><span class="chip">Target: SD, WV, CO, NM, RI, OH, MO, WI, AL, NC, MS; Miami</span><span class="chip">KPI: state rates vs 2019 at the next CEV wave</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.1rem">
+      <div class="grid cols-4 budget">
+        <div><div class="kicker">Budget rule</div><b>1% of pre-tax profit</b><div class="small muted">CECP field standard; median large company gives 0.78%</div></div>
+        <div><div class="kicker">Year 1</div><b>VTO + matching + 3 pilot nonprofits</b><div class="small muted">baseline employee survey using CEV wording</div></div>
+        <div><div class="kicker">Year 2</div><b>Platform beta + first fellows + grants open</b><div class="small muted">two lagging states first</div></div>
+        <div><div class="kicker">Every 2 years</div><b>Re-benchmark on the new CEV wave</b><div class="small muted">move money to where the gap vs 2019 is largest</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 SOURCES -->
+  <section class="slide" id="sources">
+    <div class="section-head">
+      <div class="kicker">9 · Sources and method</div>
+      <h2>Everything on this site traces to a public table.</h2>
+    </div>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>Data</h3>
+        <ol class="sources small">
+          <li>AmeriCorps / U.S. Census Bureau. CEV Supplement findings tables: national rates (rhng-qtzw), rates by demographics (bhmf-84dy), state rates (4r6x-re58), 2023 toplines (9zzx-8cwf). <a href="https://data.americorps.gov/stories/s/62w6-z7xa">data.americorps.gov</a></li>
+          <li>Schlachter, L. H. 2024. <i>Renewed Engagement in American Civic Life</i>. AmeriCorps. · AmeriCorps 2021, <i>Key Findings from the 2019 CPS CEV</i>. · Coleman &amp; Crittenden 2024, <i>Virtual Volunteering</i>. · AmeriCorps 2024, <i>Work and Civic Life</i>; <i>Formal Volunteering Intensity</i>.</li>
+          <li>U.S. Census Bureau. Schlachter, L. H. and T. Marshall. 2024. "U.S. Volunteerism Rebounding After COVID-19 Pandemic." America Counts, Nov 19, 2024. <a href="https://www.census.gov/library/stories/2024/11/civic-engagement-and-volunteerism.html">census.gov</a></li>
+          <li>U.S. Bureau of Labor Statistics. <i>Volunteering in the United States</i>, releases for 2007, 2010 and 2015 (CPS Volunteer Supplement, 2003–2015). <a href="https://www.bls.gov/news.release/volun.nr0.htm">bls.gov</a></li>
+          <li>Independent Sector. 2026. <i>Value of Volunteer Time</i>, historic national series 2001–2025. <a href="https://independentsector.org/resource/value-of-volunteer-time/">independentsector.org</a></li>
+          <li>Chief Executives for Corporate Purpose. 2025. <i>Giving in Numbers: 2025 Edition</i>. <a href="https://cecp.org/home/resources/giving-in-numbers/">cecp.org</a></li>
+          <li>UN Volunteers. 2021. <i>2022 State of the World's Volunteerism Report</i>. · Holt-Lunstad et al. 2010, <i>PLoS Medicine</i>; Sampson et al. 1997, <i>Science</i> (as cited by AmeriCorps).</li>
+          <li>FBLA. <i>2026–2027 Competitive Events Guidelines: Data Analysis</i>.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Method in five lines</h3>
+        <ul class="small">
+          <li><b>Percentage points vs. percent:</b> 23.2% → 28.3% is +5.1 points and +22%.</li>
+          <li><b>Baseline:</b> every state is compared with its own 2019 pre-pandemic rate.</li>
+          <li><b>Correlation:</b> Pearson r across 51 states; describes association, not cause.</li>
+          <li><b>Value:</b> hours × Independent Sector value of a volunteer hour.</li>
+          <li><b>Caveat:</b> the 2017 redesign moved the volunteering question; pre- and post-2017 series are shown but never compared directly. Survey estimates carry sampling error, wider at state level.</li>
+        </ul>
+        <details class="small" style="margin-top:.6rem"><summary>All 17 national measures, 2017–2023 (table)</summary><div class="table-scroll" style="margin-top:.6rem"><table id="natTable"></table></div></details>
+        <p class="small muted" style="margin:.8rem 0 0">Flinders Street Technology is a fictional company defined by the FBLA topic. Computations are reproducible from the data folder of this site.</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

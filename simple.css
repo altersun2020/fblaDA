@@ -1,0 +1,29 @@
+/* Simple question-and-answer page */
+body.q { background: #ffffff; color: #15202b; font-size: 18px; }
+body.q .qhead { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid #e6e9ee; display: flex; align-items: center; gap: 1.2rem; padding: .7rem clamp(16px, 4vw, 48px); }
+body.q .qhead > div { display: flex; flex-direction: column; line-height: 1.2; }
+body.q .qhead > div b { font-size: 1rem; } body.q .qhead > div span { font-size: .72rem; color: #6b7684; }
+body.q .qhead nav { display: flex; gap: .2rem; flex-wrap: wrap; margin-left: .5rem; }
+body.q .qhead nav a { text-decoration: none; color: #4a5563; font-size: .85rem; padding: .35rem .6rem; border-radius: 999px; }
+body.q .qhead nav a:hover { background: #eef1f5; color: #15202b; }
+body.q .qhead .btn { margin-left: auto; white-space: nowrap; }
+body.q .qmain { max-width: 980px; margin: 0 auto; padding: 1rem clamp(16px, 4vw, 48px) 4rem; }
+.qs { padding: 3rem 0 2.5rem; border-bottom: 1px solid #e6e9ee; }
+.qs:last-of-type { border: 0; }
+.qnum { width: 38px; height: 38px; border-radius: 50%; background: #0b6e7f; color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: .7rem; }
+.qs h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: .4rem; }
+.answer { font-size: 1.15rem; line-height: 1.5; max-width: 64ch; margin-bottom: 1.2rem; }
+.answer b { color: #0b6e7f; }
+.big3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .8rem; margin: 0 0 1.2rem; }
+.big3 div { background: #f4f6f8; border-radius: 12px; padding: .9rem 1rem; }
+.big3 b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; color: #0b6e7f; }
+.big3 span { font-size: .85rem; color: #4a5563; }
+body.q .chart-wrap { height: 320px; } body.q .chart-wrap.tall { height: 420px; } body.q .chart-wrap.xl { height: 520px; }
+.src { font-size: .8rem; color: #6b7684; margin: .9rem 0 0; line-height: 1.5; }
+.onecontrol { margin-bottom: .6rem; font-size: .95rem; } .onecontrol select { margin-left: .3rem; }
+.ranks { font-size: .95rem; } .ranks h4 { margin: .2rem 0 .4rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: #6b7684; }
+.ranks ol { padding-left: 1.3rem; margin: 0 0 1rem; } .ranks li { display: flex; justify-content: space-between; padding: .15rem 0; } .ranks li b { font-variant-numeric: tabular-nums; }
+body.q .tilemap .t { font-size: .78rem; }
+.qfoot { margin-top: 2rem; font-size: .95rem; }
+body.q h3 { font-size: 1rem; margin: 0 0 .4rem; color: #4a5563; }
+@media (max-width: 820px) { body.q .qhead nav { display: none; } body.q .chart-wrap.xl { height: 560px; } }

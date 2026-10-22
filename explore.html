@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volunteering in America</title>
+<meta name="description" content="How Americans volunteer, help neighbors and give, 2003–2025, in simple charts. Data from the U.S. Census Bureau and AmeriCorps CEV survey, BLS, Independent Sector and CECP.">
+<link rel="stylesheet" href="styles.css?v=2">
+<script src="vendor/chart.umd.min.js"></script>
+<script src="data/cev-data.js"></script>
+</head>
+<body class="simple">
+<header class="xhead">
+  <div class="brand">Volunteering in America<span>Census Bureau &amp; AmeriCorps survey data, 2003–2025</span></div>
+  <nav class="tabs" id="tabs">
+    <button data-v="overview" class="on">Overview</button>
+    <button data-v="trends">Over time</button>
+    <button data-v="demo">Who</button>
+    <button data-v="states">Where</button>
+    <button data-v="long">20 years</button>
+    <button data-v="corp">Companies</button>
+  </nav>
+  <div class="right"><button id="themeBtn" title="Light / dark">Theme</button></div>
+</header>
+
+<main class="xmain">
+
+<section class="view on" id="v-overview">
+  <h2>What Americans do for their communities</h2>
+  <p class="lead muted">Every two years the Census Bureau asks 47,000 people what they did in the past year. Each card: the share who said yes in 2023, and how it moved since 2017.</p>
+  <div class="explain" id="exOverview"></div>
+  <div id="smGroups"></div>
+  <p class="note"><b>Words to know.</b> Formal volunteering = giving time through an organization like a food bank or school. Informal helping = helping a neighbor directly. "Points" = the plain difference between two percentages (23% → 28% is +5 points).</p>
+</section>
+
+<section class="view" id="v-trends">
+  <h2>How it changed over the years</h2>
+  <p class="lead muted">Each line is the share of Americans who did that behavior. 2021 was the pandemic year.</p>
+  <div class="explain" id="exTrends"></div>
+  <div class="card">
+    <div class="toolrow">
+      <div class="chipbar" id="trChips" style="margin:0"></div>
+      <select id="trAdd"><option value="">+ Add a behavior…</option></select>
+      <div class="seg" id="trMode"><button data-m="rate" class="on">Share of people</button><button data-m="pts">Change since 2017</button></div>
+    </div>
+    <div class="chart-wrap tall"><canvas id="chTrends"></canvas></div>
+  </div>
+  <details class="numbers"><summary>Show the numbers</summary><div class="card table-scroll heat"><table id="trTable"></table></div></details>
+</section>
+
+<section class="view" id="v-demo">
+  <h2>Who does it</h2>
+  <p class="lead muted">Split people by age, income, education and more. The dashed line is all Americans.</p>
+  <div class="explain" id="exDemo"></div>
+  <div class="card">
+    <div class="toolrow">
+      <label class="small muted">Split by<br><select id="dmCat"></select></label>
+      <label class="small muted">Behavior<br><select id="dmMeasure"></select></label>
+      <div class="seg" id="dmType"><button data-t="line" class="on">Over the years</button><button data-t="rank">Who bounced back most</button></div>
+    </div>
+    <div class="chart-wrap tall"><canvas id="chDemo"></canvas></div>
+  </div>
+  <details class="numbers"><summary>Show the numbers</summary><div class="card table-scroll heat"><table id="dmTable"></table></div></details>
+</section>
+
+<section class="view" id="v-states">
+  <h2>Where in the country</h2>
+  <p class="lead muted">Darker = a bigger share of that state's people. Press play to watch the years go by. Click states to compare them.</p>
+  <div class="explain" id="exStates"></div>
+  <div class="card">
+    <div class="toolrow">
+      <label class="small muted">Behavior<br><select id="stMeasure"></select></label>
+      <div class="seg" id="stMode"><button data-mode="level" class="on">Share of people</button><button data-mode="change19">Change since 2019</button></div>
+      <div class="yearbar"><button id="stPlay">▶ Play</button><input type="range" id="stYear" min="0" max="3" step="1" value="3"><span class="yr" id="stYearLbl">2023</span></div>
+    </div>
+    <div class="grid cols-3">
+      <div class="span-2"><div class="tilemap" id="tilemap" role="img" aria-label="Tile map of U.S. states"></div><div class="legend" id="mapLegend"></div></div>
+      <div><div class="cmp" id="cmpList"></div><div class="chart-wrap" style="height:260px;margin-top:.5rem"><canvas id="chStates"></canvas></div></div>
+    </div>
+  </div>
+  <details class="numbers"><summary>Show the numbers for every state</summary>
+    <div class="toolrow"><input type="search" id="stSearch" placeholder="Find a state…"></div>
+    <div class="card table-scroll tbl-wrap heat"><table id="stTable" class="sticky-th"></table></div>
+    <h3 style="margin-top:1rem">Largest metro areas, 2023</h3>
+    <div class="card table-scroll heat"><table id="metroTable"></table></div>
+  </details>
+</section>
+
+<section class="view" id="v-long">
+  <h2>Twenty years of volunteering</h2>
+  <p class="lead muted">How many Americans volunteer, how much time they give, and what that time is worth.</p>
+  <div class="explain" id="exLong"></div>
+  <div class="grid cols-2">
+    <div class="card"><h3>Share of Americans who volunteered</h3><div class="chart-wrap"><canvas id="chLong"></canvas></div><p class="note">Grey: Census/BLS survey 2003–2015. Teal: current survey 2017–2023. The questions changed in 2017, so compare within one color.</p></div>
+    <div class="card"><h3>Hours each volunteer gives per year</h3><div class="chart-wrap"><canvas id="chHoursPer"></canvas></div><p class="note">"Median" = the typical volunteer. Sources: AmeriCorps and U.S. Census Bureau (Nov 2024).</p></div>
+    <div class="card"><h3>What one volunteer hour is worth</h3><div class="chart-wrap"><canvas id="chHour"></canvas></div><p class="note">Independent Sector estimate, based on average U.S. wages. Orange dots = survey years.</p></div>
+    <div class="card"><h3>Total hours and total value</h3><div class="chart-wrap"><canvas id="chHoursValue"></canvas></div><p class="note">Fewer hours, but worth more dollars, because each hour is valued higher.</p></div>
+  </div>
+  <details class="numbers"><summary>Show the numbers, year by year</summary><div class="card table-scroll heat"><table id="longTable"></table></div></details>
+  <div class="card" style="display:none"><div class="chart-wrap"><canvas id="chCount"></canvas></div></div>
+</section>
+
+<section class="view" id="v-corp">
+  <h2>What big companies do</h2>
+  <p class="lead muted">A survey of 189 large U.S. companies (CECP, 2024), next to what workers say in the Census survey.</p>
+  <div class="explain" id="exCorp"></div>
+  <div class="grid cols-2">
+    <div class="card"><h3>Programs companies offer, and how many employees join in</h3><div class="chart-wrap tall"><canvas id="chCecp"></canvas></div></div>
+    <div class="card"><h3>Workers whose employer asked them to volunteer or give</h3><div class="chart-wrap tall"><canvas id="chEmp"></canvas></div><p class="note">By generation and household income, 2021 vs 2023 (Census survey).</p></div>
+  </div>
+  <details class="numbers"><summary>Show more company numbers</summary><div class="card table-scroll"><table id="cecpTable"></table></div></details>
+</section>
+
+<footer class="xfoot">
+  <span>Sources: U.S. Census Bureau &amp; AmeriCorps CEV Supplement 2017–2023 · Census Bureau story, Nov 2024 · BLS Volunteering in the U.S. 2003–2015 · Independent Sector Value of Volunteer Time · CECP Giving in Numbers 2025.</span>
+  <span><a href="index.html">← Simple view</a> · <a href="story.html">Analysis &amp; recommendations →</a> · <a href="prep.html">Event prep →</a></span>
+</footer>
+</main>
+<script src="explore.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Event Prep Kit</title>
+<meta name="description" content="Rubric, timer, rules checklist and practice Q&A for the FBLA Data Analysis presentation.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .timer { text-align: center; padding: 1.2rem; }
+  .timer .clock { font-size: clamp(3rem, 10vw, 6rem); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.03em; line-height: 1; }
+  .timer .phase { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin: .4rem 0 .8rem; }
+  .timer.warn .clock { color: var(--accent-2); } .timer.over .clock { color: var(--neg); }
+  .qa details { border-bottom: 1px solid var(--line); padding: .6rem 0; }
+  .qa summary { cursor: pointer; font-weight: 700; }
+  .qa details p { margin: .5rem 0 0; font-size: .92rem; }
+  .check label { display: flex; gap: .6rem; align-items: flex-start; padding: .3rem 0; font-size: .92rem; cursor: pointer; }
+  .check input { margin-top: .25rem; }
+</style>
+</head>
+<body>
+<div class="topbar"><button id="menuBtn" aria-label="Open navigation">☰</button><b>Event Prep Kit</b></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">Flinders Street Technology<span>FBLA Data Analysis · Prep Kit</span></div>
+    <nav class="nav" id="nav">
+      <a href="#timer">Timer</a>
+      <a href="#rubric">Rating sheet</a>
+      <a href="#map">Rubric → site map</a>
+      <a href="#rules">Rules checklist</a>
+      <a href="#qa">Practice Q&amp;A</a>
+      <a href="#talk">7-minute talk track</a>
+    </nav>
+    <div class="tools"><a class="btn primary" href="index.html">← Simple view</a><a class="btn" href="explore.html">Data explorer</a><a class="btn" href="story.html">Analysis →</a></div>
+  </aside>
+  <main class="main">
+
+  <section class="slide" id="timer">
+    <div class="kicker">Practice timer</div>
+    <h2>Set-up 3 min · Presentation 7 min · Q&amp;A 3 min</h2>
+    <p class="lead">Segments are exclusive and cannot be shifted. A one-minute warning is given during the presentation.</p>
+    <div class="card timer" id="timerCard">
+      <div class="phase" id="phase">Ready</div>
+      <div class="clock" id="clock">7:00</div>
+      <div class="controls" style="justify-content:center;margin-top:1rem">
+        <div class="seg" id="segs"><button data-min="3" data-name="Set-up">Set-up 3:00</button><button data-min="7" data-name="Presentation" class="on">Presentation 7:00</button><button data-min="3" data-name="Q&amp;A">Q&amp;A 3:00</button></div>
+        <button class="primary" id="startBtn">Start</button><button id="resetBtn">Reset</button>
+      </div>
+      <p class="small muted" style="margin:.8rem 0 0">Turns amber at the one-minute warning and red when time is up. <span class="kbd">Space</span> starts/pauses.</p>
+    </div>
+  </section>
+
+  <section class="slide" id="rubric">
+    <div class="kicker">Rating sheet (110 points)</div>
+    <h2>What judges score</h2>
+    <div class="card table-scroll">
+      <table>
+        <thead><tr><th>Expectation item</th><th>Exceeds expectations</th><th class="num">Max</th></tr></thead>
+        <tbody>
+          <tr><td>Understanding of the event topic</td><td>Uses industry terminology of the topic during the presentation</td><td class="num">10</td></tr>
+          <tr><td>Analysis of data</td><td>Deep, industry-standard analysis; addresses broader global impact</td><td class="num">15</td></tr>
+          <tr><td>Visualizations of data</td><td>At least three competitor-created visualizations explaining overall trends in context of the topic</td><td class="num">15</td></tr>
+          <tr><td>Recommendation</td><td>Feasible recommendation and plan; necessary resources identified with supporting evidence</td><td class="num">10</td></tr>
+          <tr><td>Accurate statements</td><td>All statements accurate with supporting evidence (more than three inaccuracies = 0)</td><td class="num">20</td></tr>
+          <tr><td>Cites sources</td><td>Compelling evidence from professionally legitimate sources</td><td class="num">10</td></tr>
+          <tr><td>Delivery: organization</td><td>Logical sequence; well-organized statements</td><td class="num">5</td></tr>
+          <tr><td>Delivery: confidence, body language, eye contact, voice</td><td>All four skills demonstrated</td><td class="num">5</td></tr>
+          <tr><td>Answers questions</td><td>Confident, clear, accurate, thoughtful answers</td><td class="num">10</td></tr>
+          <tr><td>Presentation protocols</td><td>Followed all guidelines (devices, topic, set-up conduct, no materials left, links not clicked, no external speakers, no food/animals)</td><td class="num">10</td></tr>
+          <tr><td class="muted">Penalties</td><td class="muted">−5 dress code · −5 late arrival</td><td class="num muted">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insight warn" style="margin-top:1rem"><strong>Biggest single item is accuracy (20 pts).</strong> Every number on the analysis site is traceable to a cited table; say "about" when rounding and never quote a figure you cannot source.</div>
+  </section>
+
+  <section class="slide" id="map">
+    <div class="kicker">Coverage map</div>
+    <h2>Where each rubric item is covered on the site</h2>
+    <div class="card table-scroll">
+      <table>
+        <thead><tr><th>Rubric item</th><th>Site section(s)</th><th>Terminology / evidence to say out loud</th></tr></thead>
+        <tbody>
+          <tr><td>Topic understanding &amp; terminology</td><td>0 Title, 1 Big picture, 9 Method</td><td>formal vs. informal volunteering, CEV supplement, weighted estimates, percentage points vs. percent, Public Benefit Corporation, social capital</td></tr>
+          <tr><td>Depth of analysis &amp; global context</td><td>2, 3, 5, 6, 7</td><td>order-effect caveat, 2019 baseline, Pearson r across states, Independent Sector valuation, CECP benchmarks, UNV global estimate</td></tr>
+          <tr><td>Three+ competitor-created visuals</td><td>1–7 (ten visuals)</td><td>Say that every chart was built from the published tables, not screenshotted from the dashboard</td></tr>
+          <tr><td>Recommendation, feasibility, resources</td><td>8 The plan</td><td>four priorities, feasibility, CECP 1%-of-pre-tax-profit budget rule, KPIs tied to CEV measures, roadmap</td></tr>
+          <tr><td>Accurate statements with evidence</td><td>All; table under 9</td><td>Open the 17-measure table if a judge challenges a number</td></tr>
+          <tr><td>Cites sources</td><td>9 Sources + caption under every chart</td><td>Name AmeriCorps, U.S. Census Bureau, BLS, Independent Sector, CECP when you speak</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="slide" id="rules">
+    <div class="kicker">Day-of checklist</div>
+    <h2>Rules that cost points if missed</h2>
+    <div class="grid cols-2">
+      <div class="card check">
+        <h3>Technology</h3>
+        <label><input type="checkbox"> Site opened from local files; no internet needed (Chart.js and data are bundled).</label>
+        <label><input type="checkbox"> One or two devices only; if two, one faces judges and one faces us.</label>
+        <label><input type="checkbox"> Devices fully charged; no power is provided in prelims.</label>
+        <label><input type="checkbox"> No projector in prelims; HDMI adapter packed for finals.</label>
+        <label><input type="checkbox"> Audio only from the device itself (no external speakers).</label>
+        <label><input type="checkbox"> Wireless clicker tested with arrow-key navigation (← →).</label>
+        <label><input type="checkbox"> Links and QR codes may be shown but judges may not click or scan them.</label>
+      </div>
+      <div class="card check">
+        <h3>Conduct &amp; materials</h3>
+        <label><input type="checkbox"> Nametag, photo ID, FBLA dress code.</label>
+        <label><input type="checkbox"> No interaction with judges during the 3-minute set-up.</label>
+        <label><input type="checkbox"> Presentation starts immediately when set-up ends.</label>
+        <label><input type="checkbox"> Every team member speaks.</label>
+        <label><input type="checkbox"> Nothing left with the judges afterwards.</label>
+        <label><input type="checkbox"> Copyrighted images/logos documented (this site uses none).</label>
+        <label><input type="checkbox"> Printed one-page source list as backup.</label>
+        <label><input type="checkbox"> Re-verify the one non-AmeriCorps statistic used (UNV State of the World's Volunteerism Report 2022: ~862 million monthly volunteers, ~70% informal) against the report, or drop it.</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="qa">
+    <div class="kicker">Practice Q&amp;A</div>
+    <h2>Questions judges are likely to ask, with data-backed answers</h2>
+    <div class="card qa">
+      <details><summary>Why is 2021 so low? Is that just COVID?</summary><p>Mostly. The CEV asked about Sept 2020–Sept 2021, when organizations suspended in-person programs. Formal volunteering fell 6.8 points to 23.2%, the lowest ever recorded, but people who kept volunteering served at the same intensity, and informal helping barely moved (50.9%). The 2023 rebound of 5.1 points is the fastest growth in the series.</p></details>
+      <details><summary>Why can't you compare 2015 (24.9%) with 2017 (30.3%) directly?</summary><p>In 2017 the Census Bureau moved the volunteering question from the start to the end of the supplement. AmeriCorps says the jump is at least partly an "order effect," so we treat 2003–2015 and 2017–2023 as two series and only compare within each.</p></details>
+      <details><summary>Correlation of 0.63 between employer encouragement and volunteering: does that prove the program works?</summary><p>No. It is a cross-sectional correlation across 51 states and could reflect state culture or industry mix. We pair it with AmeriCorps' individual-level finding that 42% of workers at encouraging employers volunteer vs. 23% nationally in 2021, and we recommend a baseline survey and KPIs so FST can measure its own effect.</p></details>
+      <details><summary>Charitable giving is down. Should FST focus on donations instead of volunteering?</summary><p>Giving fell from 52.2% to 48.5% and is down in 38 of 51 states since 2017, but it is still the most common form of organizational engagement and ticked up for the first time in 2023. Our Priority 1 includes a matching-gift program, and the data shows giving and volunteering move together (r = 0.80 across states), so growing one tends to grow the other.</p></details>
+      <details><summary>Why target informal helping if a company can't measure it?</summary><p>Because it is where Americans are actually growing: 54.3% in 2023, a record, and 12.9 million more helpers than 2021. The CEV does measure it every two years at state level, so FST can benchmark grant regions against the national trend.</p></details>
+      <details><summary>How much would this cost?</summary><p>CECP's field standard is 1% of pre-tax profit; the median large company gave 0.78% in 2024 and the median total was $21.5 million. FST is fictional, so we size budgets as formulas: volunteer time off and matching as a fixed share of U.S. payroll; the hybrid platform mostly in-kind engineering time; fellowships and grants as a capped annual pool. Priorities 1 and 2 use assets the company already owns, which is why they are rated high feasibility.</p></details>
+      <details><summary>What is the economic value based on?</summary><p>Hours served multiplied by Independent Sector's value of a volunteer hour, $33.49 in 2023. Hours actually fell from about 5.8 billion in 2019 to 4.99 billion in 2023; the dollar value rose from $147B to $167.2B because the hourly value increased.</p></details>
+      <details><summary>What about the other 31 countries?</summary><p>The CEV is U.S.-only, so our plan is U.S.-scoped as the brief asked. We recommend replicating the benchmark approach using each country's national statistics (UK Community Life Survey, Statistics Canada GSS, Australia GSS). Globally, UNV estimates about 862 million people volunteer monthly, roughly 70% informally, which mirrors the U.S. pattern that informal helping outnumbers formal volunteering.</p></details>
+      <details><summary>Which groups should FST worry about most?</summary><p>Lower-income households (16.3% volunteer under $25k vs. 41.4% at $150k+), Hispanic Americans (16.9%), and 18–24 year-olds (22.6%, down from 34.1% at ages 16–17). Those are also the groups least likely to have an employer that encourages service, so a corporate program alone will not reach them; hence Priority 3.</p></details>
+      <details><summary>Where did the data come from and how reliable is it?</summary><p>The Current Population Survey CEV Supplement, run by the U.S. Census Bureau for AmeriCorps every two years, with tens of thousands of households per wave and weighted, nationally representative estimates. State estimates have wider margins of error, which is why we look for patterns across many states rather than single-state changes.</p></details>
+    </div>
+  </section>
+
+  <section class="slide" id="talk">
+    <div class="kicker">Talk track</div>
+    <h2>Seven minutes, section by section</h2>
+    <div class="card table-scroll">
+      <table>
+        <thead><tr><th>Time</th><th>Section</th><th>Key line</th></tr></thead>
+        <tbody>
+          <tr><td>0:00</td><td>0 Title</td><td>"FST asked how Americans give time and money, and where to invest. Eight charts, four priorities."</td></tr>
+          <tr><td>0:30</td><td>1 Big picture</td><td>"Almost everyone talks, half help a neighbor, one in four volunteers through an organization."</td></tr>
+          <tr><td>1:15</td><td>2–3 What changed, twenty years</td><td>Historic low in 2021, record 22% rebound; issue engagement still falling; one caveat (2017 redesign).</td></tr>
+          <tr><td>2:30</td><td>4 Who</td><td>Income gap 2.5×; drop-off at 18; Millennials above pre-pandemic.</td></tr>
+          <tr><td>3:15</td><td>5 Where</td><td>14 states recovered, 11 still 5+ points down; Sun Belt lags; behaviors cluster.</td></tr>
+          <tr><td>4:00</td><td>6 Workplace</td><td>40% encouraged, up 4.5 pts; encouraged workers volunteer at 42% vs 23%; CECP: 25% average participation, 93% match.</td></tr>
+          <tr><td>4:45</td><td>7 Hours &amp; dollars</td><td>Fewer hours, more value ($33.49/hr); online volunteers 95 vs 64 hours.</td></tr>
+          <tr><td>5:15</td><td>8 The plan</td><td>Four priorities, 1% of pre-tax profit, KPIs, re-benchmark every CEV wave.</td></tr>
+          <tr><td>6:30</td><td>Close</td><td>"Neighbors, employers and technology are the rising currents. FST is all three." Invite questions.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  </main>
+</div>
+<script>
+(function(){
+  const clock=document.getElementById('clock'), phase=document.getElementById('phase'), card=document.getElementById('timerCard');
+  let total=7*60, left=total, name='Presentation', t=null;
+  const fmt=s=>{const m=Math.floor(Math.abs(s)/60), r=Math.abs(s)%60; return (s<0?'-':'')+m+':'+String(r).padStart(2,'0');};
+  function draw(){ clock.textContent=fmt(left); card.classList.toggle('warn', left<=60 && left>0 && name==='Presentation'); card.classList.toggle('over', left<=0); phase.textContent=t?name:(left===total?name+' · ready':name+' (paused)'); }
+  function tick(){ left--; draw(); if(left===60 && name==='Presentation') phase.textContent='One-minute warning'; }
+  function start(){ if(t){clearInterval(t);t=null;draw();document.getElementById('startBtn').textContent='Start';return;} t=setInterval(tick,1000); document.getElementById('startBtn').textContent='Pause'; draw(); }
+  function reset(){ clearInterval(t); t=null; left=total; document.getElementById('startBtn').textContent='Start'; draw(); }
+  document.getElementById('segs').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return; [...e.currentTarget.children].forEach(x=>x.classList.toggle('on',x===b)); total=+b.dataset.min*60; name=b.textContent.replace(/ \d.*$/,''); reset();});
+  document.getElementById('startBtn').addEventListener('click',start); document.getElementById('resetBtn').addEventListener('click',reset);
+  document.addEventListener('keydown',e=>{ if(e.key===' ' && e.target.tagName!=='INPUT'){e.preventDefault();start();} });
+  document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('sidebar').classList.toggle('open'));
+  document.getElementById('nav').addEventListener('click',()=>document.getElementById('sidebar').classList.remove('open'));
+  draw();
+})();
+</script>
+</body>
+</html>
