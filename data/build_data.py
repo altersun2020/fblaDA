@@ -8,24 +8,26 @@ RAW = os.path.join(os.path.dirname(__file__), 'raw')
 OUT = os.path.join(os.path.dirname(__file__), 'cev-data.js')
 YEARS = [2017, 2019, 2021, 2023]
 
-MEASURES = [  # key, label, area
-  ('formal', 'Formal Volunteering', 'Organizational engagement'),
-  ('member', 'Organizational Membership', 'Organizational engagement'),
-  ('giving', 'Charitable Giving', 'Organizational engagement'),
-  ('informal', 'Informal Helping', 'Engaging with neighbors'),
-  ('talkFF', 'Talking with Friends and Family', 'Friends, family & issues'),
-  ('talkNb', 'Talking with Neighbors', 'Engaging with neighbors'),
-  ('news', 'Learning About Issues', 'Friends, family & issues'),
-  ('discussFF', 'Discussing Issues with Friends and Family', 'Friends, family & issues'),
-  ('discussNb', 'Discussing Issues with Neighbors', 'Engaging with neighbors'),
-  ('post', 'Posting Views Online', 'Friends, family & issues'),
-  ('vote', 'Voting in Local Elections', 'Political engagement'),
-  ('contact', 'Contacting Public Officials', 'Political engagement'),
-  ('polDonate', 'Donating to a Political Cause', 'Political engagement'),
-  ('meetings', 'Attending Public Meetings', 'Political engagement'),
-  ('action', 'Taking Action with Neighbors', 'Engaging with neighbors'),
-  ('buycott', 'Buycotting or Boycotting', 'Economic engagement'),
-  ('employer', 'Employer Promotes Volunteering', 'Economic engagement'),
+# type: formal = through an organization; informal = helping neighbors directly / neighbor civic life;
+# other = remaining civic behaviors (friends/family, political, economic).
+MEASURES = [  # key, label, area, type
+  ('formal', 'Formal Volunteering', 'Organizational engagement', 'formal'),
+  ('member', 'Organizational Membership', 'Organizational engagement', 'formal'),
+  ('giving', 'Charitable Giving', 'Organizational engagement', 'formal'),
+  ('informal', 'Informal Helping', 'Engaging with neighbors', 'informal'),
+  ('talkFF', 'Talking with Friends and Family', 'Friends, family & issues', 'other'),
+  ('talkNb', 'Talking with Neighbors', 'Engaging with neighbors', 'informal'),
+  ('news', 'Learning About Issues', 'Friends, family & issues', 'other'),
+  ('discussFF', 'Discussing Issues with Friends and Family', 'Friends, family & issues', 'other'),
+  ('discussNb', 'Discussing Issues with Neighbors', 'Engaging with neighbors', 'informal'),
+  ('post', 'Posting Views Online', 'Friends, family & issues', 'other'),
+  ('vote', 'Voting in Local Elections', 'Political engagement', 'other'),
+  ('contact', 'Contacting Public Officials', 'Political engagement', 'other'),
+  ('polDonate', 'Donating to a Political Cause', 'Political engagement', 'other'),
+  ('meetings', 'Attending Public Meetings', 'Political engagement', 'other'),
+  ('action', 'Taking Action with Neighbors', 'Engaging with neighbors', 'informal'),
+  ('buycott', 'Buycotting or Boycotting', 'Economic engagement', 'other'),
+  ('employer', 'Employer Promotes Volunteering', 'Economic engagement', 'other'),
 ]
 LABEL_TO_KEY = {m[1]: m[0] for m in MEASURES}
 
@@ -139,7 +141,7 @@ data = {
   'hoursPerVolunteer': hours_per_volunteer,
   'valueOfHour': value_of_hour,
   'cecp': cecp,
-  'measures': [{'key': k, 'label': l, 'area': a} for k, l, a in MEASURES],
+  'measures': [{'key': k, 'label': l, 'area': a, 'type': t} for k, l, a, t in MEASURES],
   'national': national,
   'demographics': demo,
   'states': states,

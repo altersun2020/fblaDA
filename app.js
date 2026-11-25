@@ -7,8 +7,17 @@
     talkFF: 'Talk with friends & family', talkNb: 'Talk with neighbors', news: 'Follow news on issues', discussFF: 'Discuss issues with friends & family', discussNb: 'Discuss issues with neighbors',
     post: 'Post views online', vote: 'Vote in local elections', contact: 'Contact public officials', polDonate: 'Donate to a political cause', meetings: 'Attend public meetings',
     action: 'Take action with neighbors', buycott: 'Buycott or boycott a company', employer: 'Employer encourages service' };
-  D.measures.forEach(m => { m.short = SHORTLBL[m.key] || m.label; });
+  const TYPE_FALLBACK = { formal: 'formal', member: 'formal', giving: 'formal', informal: 'informal', talkNb: 'informal', discussNb: 'informal', action: 'informal' };
+  const TYPE_ORDER = ['formal', 'informal', 'other'];
+  const TYPE_GROUP = { formal: 'Formal (through an organization)', informal: 'Informal (helping neighbors)', other: 'Other civic' };
+  D.measures.forEach(m => { m.short = SHORTLBL[m.key] || m.label; m.type = m.type || TYPE_FALLBACK[m.key] || 'other'; });
   const M = Object.fromEntries(D.measures.map(m => [m.key, m]));
+  function measureOptions(selected) {
+    return TYPE_ORDER.map(t => {
+      const ms = D.measures.filter(m => m.type === t);
+      return `<optgroup label="${TYPE_GROUP[t]}">${ms.map(m => `<option value="${m.key}"${m.key === selected ? ' selected' : ''}>${m.label}</option>`).join('')}</optgroup>`;
+    }).join('');
+  }
   const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   const pct = (v, d = 1) => v == null ? '–' : (v * 100).toFixed(d) + '%';
   const pts = v => (v > 0 ? '+' : '') + (v * 100).toFixed(1) + ' pts';
@@ -99,7 +108,7 @@
   function initDemo() {
     const cats = [...new Set(D.demographics.map(d => d.category))];
     const cs = document.getElementById('demoCat'); cs.innerHTML = cats.map(c => `<option>${c}</option>`).join(''); cs.value = 'Family income';
-    const ms = document.getElementById('demoMeasure'); ms.innerHTML = D.measures.map(m => `<option value="${m.key}">${m.label}</option>`).join(''); ms.value = 'formal';
+    const ms = document.getElementById('demoMeasure'); ms.innerHTML = measureOptions('formal'); ms.value = 'formal';
     const ys = document.getElementById('demoYears'); ys.innerHTML = YEARS.map(y => `<button data-y="${y}" class="${demoYears.has(y) ? 'on' : ''}">${y}</button>`).join('');
     ys.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const y = +b.dataset.y; if (demoYears.has(y)) { if (demoYears.size > 1) demoYears.delete(y); } else demoYears.add(y); b.classList.toggle('on', demoYears.has(y)); chDemo(); });
     cs.addEventListener('change', chDemo); ms.addEventListener('change', chDemo);
@@ -123,7 +132,7 @@
   function mix(c1, c2, u) { const a = hexToRgb(c1), b = hexToRgb(c2); return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * u)).join(',')})`; }
   function stateVal(s) { const r = D.states[s].rates[map.measure]; return map.mode === 'level' ? (r[map.year] ?? null) : (r[2023] != null && r[2019] != null ? r[2023] - r[2019] : null); }
   function initMap() {
-    const ms = document.getElementById('mapMeasure'); ms.innerHTML = D.measures.map(m => `<option value="${m.key}">${m.label}</option>`).join('');
+    const ms = document.getElementById('mapMeasure'); ms.innerHTML = measureOptions('formal');
     const ys = document.getElementById('mapYear'); ys.innerHTML = YEARS.map(y => `<option>${y}</option>`).join(''); ys.value = '2023'; ys.disabled = true;
     ms.addEventListener('change', () => { map.measure = ms.value; renderMap(); });
     ys.addEventListener('change', () => { map.year = +ys.value; renderMap(); });
@@ -189,9 +198,11 @@
 
   /* ---------- Table ---------- */
   function renderTable() {
-    const h = `<thead><tr><th>Measure</th>${YEARS.map(y => `<th class="num">${y}</th>`).join('')}<th class="num">Δ 17→23</th><th class="num">Δ 21→23</th></tr></thead>`;
-    const b = D.measures.map(m => { const r = D.national[m.key]; const d1 = r[2017] != null ? r[2023] - r[2017] : null, d2 = r[2023] - r[2021];
-      return `<tr><td>${m.label}</td>${YEARS.map(y => `<td class="num">${pct(r[y])}</td>`).join('')}<td class="num ${d1 == null ? '' : d1 >= 0 ? 'up' : 'down'}">${d1 == null ? '–' : pts(d1)}</td><td class="num ${d2 >= 0 ? 'up' : 'down'}">${pts(d2)}</td></tr>`; }).join('');
+    const typeLbl = { formal: 'Formal', informal: 'Informal', other: 'Other' };
+    const h = `<thead><tr><th>Type</th><th>Measure</th>${YEARS.map(y => `<th class="num">${y}</th>`).join('')}<th class="num">Δ 17→23</th><th class="num">Δ 21→23</th></tr></thead>`;
+    const ordered = TYPE_ORDER.flatMap(t => D.measures.filter(m => m.type === t));
+    const b = ordered.map(m => { const r = D.national[m.key]; const d1 = r[2017] != null ? r[2023] - r[2017] : null, d2 = r[2023] - r[2021];
+      return `<tr><td>${typeLbl[m.type]}</td><td>${m.label}</td>${YEARS.map(y => `<td class="num">${pct(r[y])}</td>`).join('')}<td class="num ${d1 == null ? '' : d1 >= 0 ? 'up' : 'down'}">${d1 == null ? '–' : pts(d1)}</td><td class="num ${d2 >= 0 ? 'up' : 'down'}">${pts(d2)}</td></tr>`; }).join('');
     document.getElementById('natTable').innerHTML = h + '<tbody>' + b + '</tbody>';
   }
 

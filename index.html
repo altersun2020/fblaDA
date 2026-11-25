@@ -6,56 +6,97 @@
 <title>Volunteering in America</title>
 <meta name="description" content="Eight simple questions about how Americans volunteer, help and give, answered with Census Bureau and AmeriCorps data, 2003–2025.">
 <link rel="stylesheet" href="styles.css?v=3">
-<link rel="stylesheet" href="simple.css?v=1">
+<link rel="stylesheet" href="simple.css?v=5">
 <script src="vendor/chart.umd.min.js"></script>
 <script src="data/cev-data.js"></script>
 </head>
 <body class="q">
 <header class="qhead">
   <div><b>Volunteering in America</b><span>U.S. Census Bureau &amp; AmeriCorps survey data</span></div>
-  <nav><a href="#q1">How many</a><a href="#q2">What people do</a><a href="#q3">What changed</a><a href="#q4">Who</a><a href="#q6">Where</a><a href="#q7">Worth</a><a href="#q8">Companies</a></nav>
-  <a class="btn" href="explore.html">Explore all the data →</a>
+  <nav id="qnav">
+    <a href="#q1">Formal vs informal</a>
+    <a href="#q2">What people do</a>
+    <a href="#q3">What changed</a>
+    <a href="#q4">Who</a>
+    <a href="#q6">Where</a>
+    <a href="#q7">Worth</a>
+    <a href="#q8">Companies</a>
+  </nav>
+  <div class="right">
+    <span class="hint"><kbd>←</kbd> <kbd>→</kbd> slides · <kbd>P</kbd> present</span>
+    <button type="button" class="ghost" id="presentBtn" title="Fullscreen slideshow (P)">Present</button>
+    <a class="btn explore" href="explore.html">Explore all the data →</a>
+  </div>
 </header>
 
 <main class="qmain">
 
+<section class="qtitle" id="q0" aria-label="Title slide">
+  <div class="brand">Volunteering in America</div>
+  <p class="sub">Formal volunteering vs informal helping — Census Bureau &amp; AmeriCorps, 2017–2023</p>
+  <div class="pair">
+    <div><b>28%</b><span>Formal — through an organization</span></div>
+    <div class="inf"><b>54%</b><span>Informal — helping neighbors directly</span></div>
+  </div>
+  <p class="keys">Press <kbd>→</kbd> to begin · <kbd>P</kbd> for fullscreen · <kbd>Esc</kbd> to exit</p>
+</section>
+
 <section class="qs" id="q1">
   <div class="qnum">1</div>
-  <h2>How many Americans volunteer?</h2>
+  <h2>Formal vs informal</h2>
+  <p class="slide-line">Informal helping is <em>nearly twice</em> as common as formal volunteering.</p>
   <p class="answer" id="a1"></p>
+  <div class="typekeys" aria-hidden="true">
+    <span class="tk formal"><i></i>Formal — through an organization</span>
+    <span class="tk informal"><i></i>Informal — helping neighbors directly</span>
+  </div>
   <div class="big3" id="big1"></div>
   <div class="chart-wrap"><canvas id="c1"></canvas></div>
-  <p class="src">Share of Americans age 16+ who volunteered through an organization in the past year. Grey = older Census survey (2003–2015); blue = current survey (2017–2023); the questions changed in 2017, so compare within one color. Sources: BLS, AmeriCorps/Census CEV.</p>
+  <p class="src">Two ways Americans give time. <b>Formal volunteering</b> = time given through an organization (school, food bank, faith group). <b>Informal helping</b> = exchanging favors with neighbors (house sitting, watching kids, lending tools). 2017–2023 CEV rates; grey dashed line is the older BLS formal-volunteering series (2003–2015), not comparable after the 2017 question redesign. Sources: BLS, AmeriCorps/Census CEV.</p>
 </section>
 
 <section class="qs" id="q2">
   <div class="qnum">2</div>
-  <h2>What else do people do for their communities?</h2>
+  <h2>What people do</h2>
+  <p class="slide-line">Teal = formal (org). Orange = informal (neighbors). Grey = other civic.</p>
   <p class="answer" id="a2"></p>
+  <div class="typekeys" aria-hidden="true">
+    <span class="tk formal"><i></i>Formal (org.)</span>
+    <span class="tk informal"><i></i>Informal (neighbors)</span>
+    <span class="tk other"><i></i>Other civic</span>
+  </div>
+  <div class="onecontrol slide-tools"><label>Show <select id="s2"><option value="all">All behaviors</option><option value="formal">Formal only</option><option value="informal">Informal only</option><option value="other">Other civic only</option></select></label></div>
   <div class="chart-wrap xl"><canvas id="c2"></canvas></div>
-  <p class="src">Share of Americans who did each at least once in the year before September 2023. Source: AmeriCorps/Census CEV 2023.</p>
+  <p class="src">Share of Americans who did each at least once in the year before September 2023. Bars are colored by type: formal (through an organization), informal (neighbor helping), or other civic life. Source: AmeriCorps/Census CEV 2023.</p>
 </section>
 
 <section class="qs" id="q3">
   <div class="qnum">3</div>
-  <h2>What changed between 2017 and 2023?</h2>
+  <h2>What changed</h2>
+  <p class="slide-line">Informal helping <em>rose</em>. Formal volunteering is still below 2017.</p>
   <p class="answer" id="a3"></p>
+  <div class="onecontrol slide-tools"><label>Show <select id="s3"><option value="all">All behaviors</option><option value="formal">Formal only</option><option value="informal">Informal only</option><option value="other">Other civic only</option></select></label></div>
   <div class="chart-wrap xl"><canvas id="c3"></canvas></div>
-  <p class="src">Change in percentage points, 2017 → 2023 (23% → 28% would be +5 points). Green = more people do it now; red = fewer. Source: AmeriCorps/Census CEV.</p>
+  <p class="src">Change in percentage points, 2017 → 2023 (23% → 28% would be +5 points). Green = more people do it now; red = fewer. Filter by formal / informal / other. Source: AmeriCorps/Census CEV.</p>
 </section>
 
 <section class="qs" id="q4">
   <div class="qnum">4</div>
-  <h2>Who volunteers the most?</h2>
+  <h2>Who does it most?</h2>
+  <p class="slide-line">Toggle <em>Formal</em> or <em>Informal</em> — gaps are biggest for formal volunteering.</p>
   <p class="answer" id="a4"></p>
-  <div class="onecontrol"><label>Split people by <select id="s4"></select></label></div>
+  <div class="onecontrol slide-tools">
+    <label>Type <select id="t4"><option value="formal">Formal volunteering</option><option value="informal">Informal helping</option></select></label>
+    <label>Split people by <select id="s4"></select></label>
+  </div>
   <div class="chart-wrap tall"><canvas id="c4"></canvas></div>
-  <p class="src">Share of each group who volunteered through an organization, 2017 (grey) and 2023 (blue). Source: AmeriCorps/Census CEV.</p>
+  <p class="src">Share of each group who did the selected type in 2017 (grey) and 2023 (colored). Formal = through an organization; informal = helping neighbors directly. Source: AmeriCorps/Census CEV.</p>
 </section>
 
 <section class="qs" id="q5">
   <div class="qnum">5</div>
-  <h2>Who bounced back fastest after the pandemic?</h2>
+  <h2>Who bounced back?</h2>
+  <p class="slide-line">Groups that formally volunteered least in 2021 grew the fastest.</p>
   <p class="answer" id="a5"></p>
   <div class="chart-wrap tall"><canvas id="c5"></canvas></div>
   <p class="src">Growth in each group's volunteering rate from 2021 to 2023, as a percent of where it started. The ten fastest and the three slowest of 44 groups. Source: AmeriCorps/Census CEV; confirmed by the U.S. Census Bureau (Nov 2024).</p>
@@ -63,30 +104,39 @@
 
 <section class="qs" id="q6">
   <div class="qnum">6</div>
-  <h2>Which states volunteer the most?</h2>
+  <h2>Which states lead?</h2>
+  <p class="slide-line">Flip Type to compare formal vs informal by state.</p>
   <p class="answer" id="a6"></p>
   <div class="grid cols-3">
-    <div class="span-2"><div class="onecontrol"><label>Year <select id="s6"><option>2017</option><option>2019</option><option>2021</option><option selected>2023</option></select></label></div><div class="tilemap" id="tilemap"></div><div class="legend" id="mapLegend"></div></div>
+    <div class="span-2">
+      <div class="onecontrol slide-tools">
+        <label>Type <select id="t6"><option value="formal">Formal volunteering</option><option value="informal">Informal helping</option></select></label>
+        <label>Year <select id="s6"><option>2017</option><option>2019</option><option>2021</option><option selected>2023</option></select></label>
+      </div>
+      <div class="tilemap" id="tilemap"></div><div class="legend" id="mapLegend"></div>
+    </div>
     <div><div class="ranks" id="r6"></div></div>
   </div>
-  <p class="src">Share of each state's residents who volunteered through an organization. Darker = higher. Hover a state for its number. Source: AmeriCorps/Census CEV.</p>
+  <p class="src">Share of each state's residents who did the selected type. Darker = higher. Hover a state for its number. Source: AmeriCorps/Census CEV.</p>
 </section>
 
 <section class="qs" id="q7">
   <div class="qnum">7</div>
-  <h2>How much time is given, and what is it worth?</h2>
+  <h2>Time &amp; dollars</h2>
+  <p class="slide-line">Fewer formal hours than before — but each hour is worth more.</p>
   <p class="answer" id="a7"></p>
   <div class="big3" id="big7"></div>
   <div class="grid cols-2">
     <div><h3>Hours the typical volunteer gives per year</h3><div class="chart-wrap"><canvas id="c7a"></canvas></div></div>
     <div><h3>What one volunteer hour is worth</h3><div class="chart-wrap"><canvas id="c7b"></canvas></div></div>
   </div>
-  <p class="src">Median hours per volunteer: AmeriCorps and U.S. Census Bureau. Value of a volunteer hour: Independent Sector, based on average U.S. wages. Total value = hours × value per hour.</p>
+  <p class="src">Median hours per volunteer: AmeriCorps and U.S. Census Bureau. Value of a volunteer hour: Independent Sector, based on average U.S. wages. Total value = hours × value per hour. Hours and dollar value are measured for formal volunteering only.</p>
 </section>
 
 <section class="qs" id="q8">
   <div class="qnum">8</div>
-  <h2>What do big companies do?</h2>
+  <h2>What companies do</h2>
+  <p class="slide-line">Most big firms offer programs — only about <em>1 in 4</em> employees join in.</p>
   <p class="answer" id="a8"></p>
   <div class="big3" id="big8"></div>
   <div class="chart-wrap"><canvas id="c8"></canvas></div>
@@ -98,6 +148,8 @@
   <p class="src">Sources: U.S. Census Bureau &amp; AmeriCorps, Current Population Survey Civic Engagement and Volunteering Supplement 2017–2023 · U.S. Census Bureau, "U.S. Volunteerism Rebounding After COVID-19 Pandemic" (Nov 2024) · Bureau of Labor Statistics, Volunteering in the United States 2003–2015 · Independent Sector, Value of Volunteer Time 2001–2025 · CECP, Giving in Numbers 2025.</p>
 </footer>
 </main>
-<script src="simple.js?v=2"></script>
+
+<div class="slide-count" id="slideCount" aria-live="polite">1 / 9</div>
+<script src="simple.js?v=6"></script>
 </body>
 </html>

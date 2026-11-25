@@ -3,7 +3,10 @@
   'use strict';
   const D = window.CEV, YEARS = D.years;
   const SHORT = { formal: 'Volunteer through an organization', member: 'Belong to an organization', giving: 'Give $25+ to charity', informal: 'Help neighbors informally', talkFF: 'Talk with friends & family', talkNb: 'Talk with neighbors', news: 'Follow news on issues', discussFF: 'Discuss issues with friends & family', discussNb: 'Discuss issues with neighbors', post: 'Post views online', vote: 'Vote in local elections', contact: 'Contact public officials', polDonate: 'Donate to a political cause', meetings: 'Attend public meetings', action: 'Take action with neighbors', buycott: 'Buycott or boycott a company', employer: 'Employer encourages service' };
-  D.measures.forEach(m => m.short = SHORT[m.key] || m.label);
+  const TYPE_FALLBACK = { formal: 'formal', member: 'formal', giving: 'formal', informal: 'informal', talkNb: 'informal', discussNb: 'informal', action: 'informal' };
+  const TYPE_ORDER = ['formal', 'informal', 'other'];
+  const TYPE_GROUP = { formal: 'Formal (through an organization)', informal: 'Informal (helping neighbors)', other: 'Other civic' };
+  D.measures.forEach(m => { m.short = SHORT[m.key] || m.label; m.type = m.type || TYPE_FALLBACK[m.key] || 'other'; });
   const M = Object.fromEntries(D.measures.map(m => [m.key, m]));
   const AREAS = [...new Set(D.measures.map(m => m.area))];
   const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
@@ -60,7 +63,11 @@
     const keys = D.measures.map(m => m.key).filter(k => trSel.has(k)); const pal = PAL();
     document.getElementById('trChips').innerHTML = keys.map((k, i) => `<button data-k="${k}" class="on" style="background:${pal[i % pal.length]}" title="Remove">${M[k].short}</button>`).join('');
     document.getElementById('trChips').onclick = e => { const b = e.target.closest('button'); if (!b || keys.length === 1) return; trSel.delete(b.dataset.k); renderTrends(); };
-    const add = document.getElementById('trAdd'); add.innerHTML = '<option value="">+ Add a behavior…</option>' + D.measures.filter(m => !trSel.has(m.key)).map(m => `<option value="${m.key}">${m.short}</option>`).join('');
+    const add = document.getElementById('trAdd');
+    add.innerHTML = '<option value="">+ Add a behavior…</option>' + TYPE_ORDER.map(t => {
+      const ms = D.measures.filter(m => m.type === t && !trSel.has(m.key));
+      return ms.length ? `<optgroup label="${TYPE_GROUP[t]}">${ms.map(m => `<option value="${m.key}">${m.short}</option>`).join('')}</optgroup>` : '';
+    }).join('');
     add.onchange = () => { if (add.value) { trSel.add(add.value); renderTrends(); } };
     const val = (k, y) => { const v = nat(k, y); if (v == null) return null; return trMode === 'rate' ? v : v - nat(k, first(k)); };
     const fmt = v => v == null ? '–' : trMode === 'rate' ? pct(v) : pts(v) + ' pts';
@@ -78,7 +85,14 @@
   /* ================= DEMOGRAPHICS ================= */
   const CATS = [...new Set(D.demographics.map(d => d.category))];
   let dmType = 'line';
-  function fillMeasureSelect(id, def) { const s = document.getElementById(id); s.innerHTML = D.measures.map(m => `<option value="${m.key}">${m.short}</option>`).join(''); s.value = def; return s; }
+  function fillMeasureSelect(id, def) {
+    const s = document.getElementById(id);
+    s.innerHTML = TYPE_ORDER.map(t => {
+      const ms = D.measures.filter(m => m.type === t);
+      return `<optgroup label="${TYPE_GROUP[t]}">${ms.map(m => `<option value="${m.key}">${m.short}</option>`).join('')}</optgroup>`;
+    }).join('');
+    s.value = def; return s;
+  }
   const dmCat = document.getElementById('dmCat'); dmCat.innerHTML = CATS.map(c => `<option>${c}</option>`).join(''); dmCat.value = 'Generation';
   const dmMeasure = fillMeasureSelect('dmMeasure', 'formal');
   dmCat.onchange = renderDemo; dmMeasure.onchange = renderDemo;
