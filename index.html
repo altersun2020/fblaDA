@@ -6,7 +6,7 @@
 <title>Volunteering in America</title>
 <meta name="description" content="Eight simple questions about how Americans volunteer, help and give, answered with Census Bureau and AmeriCorps data, 2003–2025.">
 <link rel="stylesheet" href="styles.css?v=3">
-<link rel="stylesheet" href="simple.css?v=5">
+<link rel="stylesheet" href="simple.css?v=6">
 <script src="vendor/chart.umd.min.js"></script>
 <script src="data/cev-data.js"></script>
 </head>
@@ -15,8 +15,8 @@
   <div><b>Volunteering in America</b><span>U.S. Census Bureau &amp; AmeriCorps survey data</span></div>
   <nav id="qnav">
     <a href="#q1">Formal vs informal</a>
-    <a href="#q2">What people do</a>
-    <a href="#q3">What changed</a>
+    <a href="#q2">Three types</a>
+    <a href="#q3">Over time</a>
     <a href="#q4">Who</a>
     <a href="#q6">Where</a>
     <a href="#q7">Worth</a>
@@ -57,27 +57,45 @@
 
 <section class="qs" id="q2">
   <div class="qnum">2</div>
-  <h2>What people do</h2>
-  <p class="slide-line">Teal = formal (org). Orange = informal (neighbors). Grey = other civic.</p>
+  <h2>Formal vs informal vs other</h2>
+  <p class="slide-line">Three types side by side — informal neighbors still lead on average.</p>
   <p class="answer" id="a2"></p>
   <div class="typekeys" aria-hidden="true">
     <span class="tk formal"><i></i>Formal (org.)</span>
     <span class="tk informal"><i></i>Informal (neighbors)</span>
     <span class="tk other"><i></i>Other civic</span>
   </div>
-  <div class="onecontrol slide-tools"><label>Show <select id="s2"><option value="all">All behaviors</option><option value="formal">Formal only</option><option value="informal">Informal only</option><option value="other">Other civic only</option></select></label></div>
-  <div class="chart-wrap xl"><canvas id="c2"></canvas></div>
-  <p class="src">Share of Americans who did each at least once in the year before September 2023. Bars are colored by type: formal (through an organization), informal (neighbor helping), or other civic life. Source: AmeriCorps/Census CEV 2023.</p>
+  <div class="big3" id="big2"></div>
+  <div class="grid cols-2 type-compare">
+    <div>
+      <h3>Average share of people, by type · 2023</h3>
+      <div class="chart-wrap"><canvas id="c2"></canvas></div>
+    </div>
+    <div>
+      <h3>How each type moved · 2017 → 2023</h3>
+      <div class="chart-wrap"><canvas id="c2b"></canvas></div>
+    </div>
+  </div>
+  <p class="src">Each bar is the <b>average</b> of the behaviors in that type (formal = volunteering, membership, giving; informal = helping / talking / discussing / acting with neighbors; other = friends/family, political, economic). Source: AmeriCorps/Census CEV.</p>
+  <details class="detail-behaviors">
+    <summary>See every behavior broken out</summary>
+    <div class="onecontrol"><label>Show <select id="s2"><option value="all">All behaviors</option><option value="formal">Formal only</option><option value="informal">Informal only</option><option value="other">Other civic only</option></select></label></div>
+    <div class="chart-wrap xl"><canvas id="c2detail"></canvas></div>
+  </details>
 </section>
 
 <section class="qs" id="q3">
   <div class="qnum">3</div>
-  <h2>What changed</h2>
-  <p class="slide-line">Informal helping <em>rose</em>. Formal volunteering is still below 2017.</p>
+  <h2>Over time by type</h2>
+  <p class="slide-line">All three types dipped in 2021. Formal rebounded most; informal helping itself hit a record.</p>
   <p class="answer" id="a3"></p>
-  <div class="onecontrol slide-tools"><label>Show <select id="s3"><option value="all">All behaviors</option><option value="formal">Formal only</option><option value="informal">Informal only</option><option value="other">Other civic only</option></select></label></div>
-  <div class="chart-wrap xl"><canvas id="c3"></canvas></div>
-  <p class="src">Change in percentage points, 2017 → 2023 (23% → 28% would be +5 points). Green = more people do it now; red = fewer. Filter by formal / informal / other. Source: AmeriCorps/Census CEV.</p>
+  <div class="chart-wrap tall"><canvas id="c3"></canvas></div>
+  <p class="src">Average rate of behaviors in each type, 2017–2023. Teal = formal (org), orange = informal (neighbors), grey = other civic. Source: AmeriCorps/Census CEV.</p>
+  <details class="detail-behaviors">
+    <summary>See which individual behaviors rose or fell</summary>
+    <div class="onecontrol"><label>Show <select id="s3"><option value="all">All behaviors</option><option value="formal">Formal only</option><option value="informal">Informal only</option><option value="other">Other civic only</option></select></label></div>
+    <div class="chart-wrap xl"><canvas id="c3detail"></canvas></div>
+  </details>
 </section>
 
 <section class="qs" id="q4">
@@ -150,6 +168,6 @@
 </main>
 
 <div class="slide-count" id="slideCount" aria-live="polite">1 / 9</div>
-<script src="simple.js?v=6"></script>
+<script src="simple.js?v=7"></script>
 </body>
 </html>

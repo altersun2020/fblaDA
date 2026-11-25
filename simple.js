@@ -16,6 +16,9 @@
   const nat = (k, y) => D.national[k][y];
   const say = (id, html) => document.getElementById(id).innerHTML = html;
   const byType = (t) => D.measures.filter(m => m.key !== 'employer' && (t === 'all' || m.type === t));
+  const TYPE_ORDER = ['formal', 'informal', 'other'];
+  const TYPE_SHORT = { formal: 'Formal (org)', informal: 'Informal (neighbors)', other: 'Other civic' };
+  const typeAvg = (t, y) => { const ms = byType(t); return ms.reduce((s, m) => s + nat(m.key, y), 0) / ms.length; };
   Chart.defaults.font.family = getComputedStyle(document.documentElement).getPropertyValue('--font') || 'system-ui';
   Chart.defaults.font.size = 13; Chart.defaults.color = MUTED; Chart.defaults.borderColor = LINE;
   const charts = {};
@@ -37,27 +40,45 @@
       { label: 'Informal helping', data: ys.map(y => i[y] ?? null), borderColor: ORANGE, backgroundColor: ORANGE, pointRadius: 6, borderWidth: 3.5, spanGaps: true, tension: .25 } ] },
       options: base({ scales: { y: { min: 0.2, max: 0.6, ticks: { stepSize: 0.05, callback: v => Math.round(v * 100) + '%' }, grid: { color: LINE } }, x: { grid: { display: false } } }, plugins: { legend: { display: true, position: 'top', labels: { filter: l => l.text !== 'redesign gap' && l.text !== 'Formal (older BLS series)' } }, tooltip: { callbacks: { title: items => items[0].label, label: c => c.raw == null ? null : ` ${c.dataset.label}: ${P(c.raw)}` } } } }) }); }
 
-  /* 2. What else — filterable by type */
-  { const sel = document.getElementById('s2');
-    const draw = () => {
+  /* 2. Clean Formal vs Informal vs Other comparison */
+  { const avgs23 = Object.fromEntries(TYPE_ORDER.map(t => [t, typeAvg(t, 2023)]));
+    const deltas = Object.fromEntries(TYPE_ORDER.map(t => [t, typeAvg(t, 2023) - typeAvg(t, 2017)]));
+    say('a2', `<b>Three types, one picture.</b> Averaging the behaviors in each type: informal (neighbors) ${P0(avgs23.informal)}, other civic ${P0(avgs23.other)}, formal (org) ${P0(avgs23.formal)}. Since 2017 each type’s average is a little lower (formal ${deltas.formal >= 0 ? '+' : '−'}${PT(deltas.formal)}, informal ${deltas.informal >= 0 ? '+' : '−'}${PT(deltas.informal)}, other ${deltas.other >= 0 ? '+' : '−'}${PT(deltas.other)}) — but the single measure “help neighbors directly” is at a record ${P(nat('informal', 2023))}.`);
+    say('big2', `<div><b>${P0(avgs23.formal)}</b><span>formal · org average</span></div><div><b style="color:${ORANGE}">${P0(avgs23.informal)}</b><span>informal · neighbors average</span></div><div><b style="color:${MUTED}">${P0(avgs23.other)}</b><span>other civic average</span></div>`);
+    mk('c2', { type: 'bar', data: { labels: TYPE_ORDER.map(t => TYPE_SHORT[t]), datasets: [{ data: TYPE_ORDER.map(t => avgs23[t]), backgroundColor: TYPE_ORDER.map(t => TYPE_COLOR[t]), borderRadius: 6, barThickness: 56 }] },
+      options: base({ scales: { y: pctAxis(0, 0.6), x: { grid: { display: false }, ticks: { color: TEXT, font: { size: 13, weight: '600' } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` avg ${P(c.raw)} · ${byType(TYPE_ORDER[c.dataIndex]).length} behaviors` } }, labels: { fmt: v => P0(v), horizontal: false } } }), plugins: [labels] });
+    mk('c2b', { type: 'bar', data: { labels: TYPE_ORDER.map(t => TYPE_SHORT[t]), datasets: [{ data: TYPE_ORDER.map(t => deltas[t]), backgroundColor: TYPE_ORDER.map(t => deltas[t] >= 0 ? GREEN : RED), borderRadius: 6, barThickness: 56 }] },
+      options: base({ scales: { y: { ticks: { callback: v => (v > 0 ? '+' : '') + Math.round(v * 100) }, grid: { color: LINE }, title: { display: true, text: 'pts vs 2017' } }, x: { grid: { display: false }, ticks: { color: TEXT, font: { size: 13, weight: '600' } } } }, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${(c.raw >= 0 ? '+' : '−') + Math.abs(c.raw * 100).toFixed(1)} pts` } }, labels: { fmt: v => (v >= 0 ? '+' : '−') + Math.abs(v * 100).toFixed(1), horizontal: false } } }), plugins: [labels] });
+    // Detail: every behavior
+    const sel = document.getElementById('s2');
+    const drawDetail = () => {
       const rows = byType(sel.value).map(m => ({ m, v: nat(m.key, 2023) })).sort((a, b) => b.v - a.v);
-      say('a2', `<b>Formal behaviors go through organizations; informal ones happen between neighbors.</b> In 2023 the three formal measures (volunteering, membership, giving $25+) sit below informal helping (${P0(nat('informal', 2023))}). Formal volunteering is ${P0(nat('formal', 2023))}. Political activities stay the rarest, under 10%.`);
-      mk('c2', { type: 'bar', data: { labels: rows.map(r => r.m.short), datasets: [{ data: rows.map(r => r.v), backgroundColor: rows.map(r => TYPE_COLOR[r.m.type]), borderRadius: 4 }] },
+      mk('c2detail', { type: 'bar', data: { labels: rows.map(r => r.m.short), datasets: [{ data: rows.map(r => r.v), backgroundColor: rows.map(r => TYPE_COLOR[r.m.type]), borderRadius: 4 }] },
         options: base({ indexAxis: 'y', scales: { x: pctAxis(0, 1), y: { grid: { display: false }, ticks: { autoSkip: false, color: TEXT } } }, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${TYPE_LABEL[rows[c.dataIndex].m.type]}: ${P(c.raw)}` } }, labels: { fmt: v => P0(v), horizontal: true } } }), plugins: [labels] });
     };
-    sel.onchange = draw; draw(); }
+    sel.onchange = drawDetail;
+    document.querySelector('#q2 .detail-behaviors').addEventListener('toggle', e => { if (e.target.open) drawDetail(); });
+  }
 
-  /* 3. What changed — filterable by type */
+  /* 3. Over time — three type averages as lines */
   { const sel = document.getElementById('s3');
-    const draw = () => {
+    const iUp = typeAvg('informal', 2023) - typeAvg('informal', 2017);
+    const fDn = typeAvg('formal', 2023) - typeAvg('formal', 2017);
+    const oDn = typeAvg('other', 2023) - typeAvg('other', 2017);
+    say('a3', `<b>Type averages all softened a bit since 2017 — but the stories inside them differ.</b> Formal orgs −${PT(fDn)}, informal neighbors −${PT(iUp)}, other civic −${PT(oDn)}. Inside formal, volunteering crashed to ${P(nat('formal', 2021))} then rebounded to ${P(nat('formal', 2023))}. Inside informal, helping neighbors hit a record ${P(nat('informal', 2023))} even as talking/discussing with neighbors fell.`);
+    mk('c3', { type: 'line', data: { labels: YEARS, datasets: TYPE_ORDER.map(t => ({
+      label: TYPE_SHORT[t], data: YEARS.map(y => typeAvg(t, y)),
+      borderColor: TYPE_COLOR[t], backgroundColor: TYPE_COLOR[t],
+      pointRadius: 7, borderWidth: 3.5, tension: .25, spanGaps: true
+    })) }, options: base({ scales: { y: pctAxis(0.2, 0.55), x: { grid: { display: false }, ticks: { color: TEXT } } }, plugins: { legend: { display: true, position: 'top' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${P(c.raw)}` } } } }) });
+    const drawDetail = () => {
       const rows = byType(sel.value).map(m => ({ m, d: nat(m.key, 2023) - nat(m.key, 2017) })).sort((a, b) => b.d - a.d);
-      const up = rows.filter(r => r.d > 0), down = rows.filter(r => r.d < 0);
-      const iUp = nat('informal', 2023) - nat('informal', 2017), fDn = nat('formal', 2023) - nat('formal', 2017);
-      say('a3', `<b>Informal helping rose; formal volunteering is still below 2017.</b> Across the list, ${up.length} behaviors rose and ${down.length} fell. Informal helping is up ${PT(iUp)} (a record ${P(nat('informal', 2023))}). Formal volunteering is down ${PT(fDn)} since 2017 because it has not fully recovered from 2021.`);
-      mk('c3', { type: 'bar', data: { labels: rows.map(r => r.m.short), datasets: [{ data: rows.map(r => r.d), backgroundColor: rows.map(r => r.d >= 0 ? GREEN : RED), borderRadius: 4 }] },
+      mk('c3detail', { type: 'bar', data: { labels: rows.map(r => r.m.short), datasets: [{ data: rows.map(r => r.d), backgroundColor: rows.map(r => r.d >= 0 ? GREEN : RED), borderRadius: 4 }] },
         options: base({ indexAxis: 'y', scales: { x: { min: Math.floor((rows[rows.length - 1].d * 100 - 1.5)) / 100, max: Math.ceil((rows[0].d * 100 + 1.5)) / 100, ticks: { callback: v => (v > 0 ? '+' : '') + Math.round(v * 100) }, grid: { color: LINE }, title: { display: true, text: 'percentage points, 2017 → 2023' } }, y: { grid: { display: false }, ticks: { autoSkip: false, color: TEXT } } }, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${TYPE_LABEL[rows[c.dataIndex].m.type]} · ${P(nat(rows[c.dataIndex].m.key, 2017))} → ${P(nat(rows[c.dataIndex].m.key, 2023))}` } }, labels: { fmt: v => (v > 0 ? '+' : '−') + Math.abs(v * 100).toFixed(1), horizontal: true } } }), plugins: [labels] });
     };
-    sel.onchange = draw; draw(); }
+    sel.onchange = drawDetail;
+    document.querySelector('#q3 .detail-behaviors').addEventListener('toggle', e => { if (e.target.open) drawDetail(); });
+  }
 
   /* 4. Who — formal or informal */
   { const CATS = [...new Set(D.demographics.map(d => d.category))]; const sel = document.getElementById('s4'); const typ = document.getElementById('t4');
